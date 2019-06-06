@@ -1,0 +1,40 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+plugins {
+    id "org.sonarqube" version "2.6"
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+ext{
+    //dependencies
+    lifecycle_common_version = '2.1.0-alpha01'
+    lifecycle_ext_version = '2.0.0'
+    rxandroid_version = '2.1.0'
+    rxjava_version = '2.2.4'
+    room_version = '2.1.0-alpha03'
+    dagger_version = '2.19'
+    glide_version = '4.8.0'
+}

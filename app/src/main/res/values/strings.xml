@@ -1,0 +1,118 @@
+<resources>
+    <string name="app_name">Online Psychological</string>
+    <string name="customer_title">Trắc nghiệm\n tâm lý học</string>
+
+    <string name="detail_neo">
+        ĐÁNH GIÁ TOÀN DIỆN NHÂN CÁCH THANH NIÊN VÀ NGƯỜI TRƯỞNG THÀNH\n
+        DỰA TRÊN MÔ HÌNH 5 YẾU TỐ (FFM) CỦA NHÂN CÁCH\n
+        NEUROTICISM - NHIỄU TÂM\n
+        EXTRAVERSION - HƯỚNG NGOẠI\n
+        OPENNESS - CỞI MỞ\n
+        AGREEABLENESS - DỄ CHẤP NHẬN\n
+        CONSCIENTIOUSNESS - TẬN TÂM
+    </string>
+
+    <string name="detail_riasec">
+        Đánh giá phát hiện kiểu người nổi trội của bản thân để định hướng nghề nghiệp chính xác:\n
+        Người thực tế - Realistic (R)\n
+        Người thích nghiên cứu – Investigative (I)\n
+        Người có tính nghệ sĩ – Artistic (A)\n
+        Người có tính xã hội – Social (S)\n
+        Người dám nghĩ dám làm – Enterprising (E)\n
+        Người công chức – Conventional (C)
+    </string>
+
+    <string name="detail_psy">
+        Trắc nghiệm phát hiện các rối loạn và tổn thương tấm lý nếu có của học sinh, sinh viên.\n
+        Xác định các vấn đề tâm lý – giáo dục ở giới trẻ
+    </string>
+    <string name="default_value">&lt;Chưa cập nhật&gt;</string>
+    <string name="theme_question">Chủ đề : %s</string>
+    <string name="content_question">Câu hỏi %d : %s</string>
+
+    <string name="rule">Quy tắc</string>
+    <string name="society">Xã hội</string>
+    <string name="discover">Khám phá</string>
+    <string name="reality">Thực tế</string>
+    <string name="art">Nghệ thuật</string>
+    <string name="convince">Thuyết phục</string>
+
+    <string name="title_neo">Trắc nghiệm nhân cách NEO</string>
+    <string name="title_riasec">Trắc nghiệm hứng thú nghề nghiệp RIASEC</string>
+    <string name="title_psychological">Trắc nghiệm sàng lọc khó khăn tâm lý</string>
+
+    <string-array name="school_array">
+        <item>Chọn trường...</item>
+        <item>Bách Khoa Hà Nội</item>
+        <item>Trường Đại học Giáo dục - ĐHQGHN</item>
+    </string-array>
+
+    <string-array name="specialized_array">
+        <item>Chọn chuyên ngành</item>
+        <item>Công nghệ thông tin</item>
+        <item>Hệ thống thông tin</item>
+    </string-array>
+
+    <string-array name="gender_array">
+        <item>Nam</item>
+        <item>Nữ</item>
+    </string-array>
+
+    <string-array name="neo_c">
+        <item>Người có điểm mặt C thấp không nhất thiết là người thiếu nguyên tắc đạo đức, nhưng họ không có nhiều đòi hỏi trong việc áp dụng chúng, cũng như họ không có nhiều động lực trong việc hướng tới mục tiêu của mình. Có một số bằng chứng cho thấy họ thích hưởng thụ và quan tâm đến tình dục</item>
+        <item>Người có điểm số trung bình ở mặt C có thể chuyển công việc sang một bên để theo đuổi việc giải trí vui chơi. Họ tổ chức khá tốt và khá đáng tin cậy, có mức độ tự giác kỷ luật ở mức trung bình.</item>
+        <item>Người có điểm số cao C là những người tỉ mỉ, đúng giờ, và đáng tin cậy. Họ có một nhu cầu tương đối cao đối với việc đạt thành tích. Họ tổ chức tốt và đáng tin cậy và thực hiện các cam kết họ đã làm. Họ có ý thức tự giác, có trách nhiệm một cách nghiêm túc. Họ là người cẩn thận, đáng tin cậy, chăm chỉ, và kiên trì. Về mặt tích cực, điểm mặt C cao có liên quan đến thành tích học tập và nghề nghiệp, về mặt tiêu cực, nó có thể dẫn đến sự kén chọn, kỹ tính, sự ra tay ép buộc, hoặc hành vi tham công tiếc việc</item>
+    </string-array>
+
+    <string-array name="neo_a">
+        <item>Những người có điểm thấp ở mặt này tương đối ít quan tâm đến người khác. Họ thường có thể vô tâm hoặc không suy nghĩ trong tương tác của họ. Họ có xu hướng xem những người khác và ý tưởng từ quan điểm phê bình. Thái độ của họ thường có khuynh hướng cứng rắn trong hầu hết các tình huống. Họ có khả năng cạnh tranh và có thể khá thể hiện cảm xúc thù địch một cách trực tiếp. Mọi người có thể mô tả họ như là một người cứng đầu hoặc ích kỷ. Mặc dù những người này thường không được yêu thích bởi những người khác, họ thường được tôn trọng vì sự độc lập của họ. Sự dẻo dai về mặt cảm xúc và khả năng cạnh tranh của họ có thể là cơ sở trong nhiều vai trò xã hội và kinh doanh.</item>
+        <item>Người có điểm trung bình có thể thông cảm nhưng cũng có thể hợp tác. Họ tin tưởng nhưng không cả tin, và đã sẵn sàng cạnh tranh cũng như hợp tác với những người khác</item>
+        <item>Người dễ đồng ý về cơ bản là vị tha. Đó là thông cảm cho những người khác và sẵn sàng  giúp đỡ họ, và tin rằng những người khác sẽ được những người khác đối xử công bằng lại với mình khi cần thiết</item>
+    </string-array>
+    
+    <string-array name="neo_n">
+        <item>Người có điểm của mặt Nhiễu tâm thấp thì cảm xúc của họ tương đối ổn định. Họ thường bình tĩnh, điềm đạm, và thoải mái, và họ có thể phải đối mặt với tình huống căng thẳng mà không trở lên khó chịu hoặc lo lắng.</item>
+        <item>Người có điểm mặt nhiễu tâm ở mức trung bình cho thấy sự ổn định cảm xúc của họ. Họ trải qua một số lượng bình thường của cảm xúc đau khổ và có một sự cân bằng giữa sự hài lòng và sự không hài lòng với cuộc sống. Họ không cao hoặc thấp trong sự tự đánh giá về bản thân. Khả năng đối phó với stress của họ tốt như người bình thường.</item>
+        <item>Có thể do nhiều những cảm xúc tiêu cực, người có điểm N cao cũng dễ có những mẫu nhận thức khộng phù hợp, ít có khả năng để kiểm soát sự xung động của họ, và ứng phó với stress kém hơn những người khác. Người có điểm cao ở mặt C ủ rũ, quá nhạy cảm, và không hài lòng với khía cạnh cuộc sống của họ. Nói chung họ có lòng tự tin thấp, và có thể có những ý tưởng và kỳ vọng không thực tế. Họ được lo lắng, thường là người cảm thấy không an toàn về bản thân và kế hoạch của họ. Bạn bè và người quen của họ có thể mô tả đặc điểm chúng như thần kinh, tự ý thức, căng thẳng và dễ bị tổn thương so với người bình thường. (Điều quan trọng là Nhiễu tâm là một chiều kích của tính cách thông thường, và các điểm nhạy cảm thần kinh cao không bao hàm việc người đó bị bất kỳ rối loạn tâm lý nào)</item>
+    </string-array>
+    
+    <string-array name="neo_o">
+        <item>Người có điểm thấp ở mặt O có xu hướng giữ nguyên hành vi ứng xử và bảo thủ trong quan điểm. Họ thích những gì quen thuộc hơn là những thứ mới mẻ, và không thích những trải nghiệm về mặt cảm xúc. </item>
+        <item>Những người có điểm số mặt O ở mức trung bình thường khá tò mò về cả những điều bên trong họ và những gì bên ngoài thế giới, và họ có khá nhiều trải nghiệm phong phú. Họ tương đối sẵn sang đón nhận những ý tưởng mới và giá trị độc đáo. Họ tương đối nhạy cảm với cảm xúc của bản thân và của người khác. </item>
+        <item>Những người cởi mở ham học hỏi mạnh mẽ (có điểm số mặt O cao) thường tò mò về cả những điều bên trong họ và những gì bên ngoài thế giới, và họ có nhiều trải nghiệm phong phú hơn những người khác. Họ sẵn sang đón nhận những ý tưởng mới và giá trị độc đáo, và họ trải nghiệm cả những cảm xúc tích cực và tiêu cực nhiều hơn những người ít cởi mở hơn. Họ rất nhạy cảm với cảm xúc của riêng mình và có một khả năng lớn hơn mức trung bình để nhận ra những cảm xúc của người khác. Họ đánh giá cao về cái đẹp trong nghệ thuật và tự nhiên. Họ sẵn sàng xem xét những ý tưởng mới và các giá trị và có thể hơi độc đáo theo quan điểm của họ. </item>
+    </string-array>
+    
+    <string-array name="neo_e">
+        <item>Người có điểm hướng ngoại thấp có xu hướng hướng nội, hướng nội không phải không thân thiện, họ độc lập chứ không phải là chậm chạp. Người hướng nội trông có thể nhút nhát nhưng không có nghĩa là họ thích ở một mình: họ không nhất thiết bị ám sợ xã hội. Mặc dù họ không có tính cởi mở của sự hướng ngoại, nhưng hướng nội không có nghĩa là không hài lòng hoặc bi quan. Tò mò là một trong những đặc điểm của người hướng nội, họ thường thích tìm tòi nghiên cứu. Họ thích làm hầu hết mọi thứ một mình hoặc với nhóm nhỏ. Họ tránh các bên lớn và lớn, và không thích gặp gỡ </item>
+        <item>Những người có tính hướng ngoại ở mức trung bình thường tương đối thích sự phấn khích và những kích thích, và có xu hướng khá hướng đến sự vui vẻ trong những hoàn cảnh khác nhau. Họ tương đối lạc quan và có khá nhiều năng lượng.</item>
+        <item>Sự hướng ngoại là hòa đồng, nhưng hướng ngoại chỉ là một trong những đặc điểm của đời sống xã hội, ngoài ra còn có những mối quan hệ và các nhóm xã hội khác. Sự hướng ngoại thể hiện ở tính quyết đoán, năng động, và hoạt ngôn. Những người có tính hướng ngoại cao thường thích sự phấn khích và những kích thích, và có xu hướng hướng đến sự vui vẻ trong những hoàn cảnh khác nhau. Họ lạc quan, tràn đầy năng lượng. Nhân viên bán hàng thường là những người có </item>
+    </string-array>
+
+    <string name="evaluate_riasec">THEO KẾT QUẢ ĐÁNH GIÁ %s TRỘI Ở LĨNH VỰC \n%s</string>
+
+    <string-array name="results_riasec">
+        <item>Quy tắc</item>
+        <item>Xã hội</item>
+        <item>Khám phá</item>
+        <item>Thực tế</item>
+        <item>Nghệ thuật</item>
+        <item>Thuyết phục</item>
+    </string-array>
+
+    <string-array name="results_riasec_array">
+        <item>Em trội ở lĩnh vực Quy tắc. Những người có chỉ số cao ở lĩnh vực này là những người quan tâm tới chi tiết, có tính tổ chức và thích làm việc với số liệu, với con số, theo những quy trình chỉ dẫn rõ ràng. Những nghề phù hợp với em như: Kế toán, Thư ký, Lưu trữ học và quản trị văn phòng, Bảo hiểm, Quản trị dữ liệu, Phân tích dữ liệu Ngân hàng/Tổ chức, Quản lý xử lý số liệu khoa học</item>
+        <item>Em trội ở lĩnh vực Xã hội. Những người có chỉ số cao ở lĩnh vực này có khả năng về ngôn ngữ, giảng giải, thích làm những việc như giảng dạy, cung cấp thông tin, sự chăm sóc, giúp đỡ, hoặc huấn luyện cho người khác. Các chuyên ngành có thể phù hợp với em như: Sư phạm; giảng viên; huấn luyện viên điền kinh; nhà tư vấn tâm lý - hướng nghiệp; công tác xã hội, y tế cộng đồng, chuyên gia thẩm định giá, nghiên cứu quy hoạch đô thị, kinh tế gia đình, tuyển dụng nhân sự, công an, nhà xã hội học, Y tá, Hướng dẫn viên du lịch; Quảng cáo; Quan hệ công chúng (PR); Bưu điện…</item>
+        <item>Em trội ở lĩnh vực Khám phá. Những người có chỉ số cao ở lĩnh vực này là những người có sở thích xem xét, học tập, nghiên cứu, phân tích và giải quyết các vấn đề. Các chuyên ngành có thể phù hợp với em như: Các ngành thuộc lĩnh vực khoa học tự nhiên (toán, lý, hóa, sinh, địa lý, địa chất, thống kê, khí tượng thủy văn…); khoa học xã hội (nhân học, tâm lý…); y - dược (bác sĩ gây mê, hồi sức, bác sĩ phẫu thuật, nha sĩ…); khoa học công nghệ (công nghệ thông tin, môi trường, điện, vật lý kỹ thuật, xây dựng…); nông lâm (nông học, thú y…). Em cũng có thể phù hợp trở thành nhà phân tích thị trường, lập trình viên</item>
+        <item>Em trội ở lĩnh vực Thực tế: Những người có chỉ số cao ở lĩnh vực này là những người phù hợp với những công việc liên quan đến kỹ thuật, công nghệ, hệ thống; ưa thích làm việc với đồ vật, máy móc, mang tính thao tác. Các chuyên ngành có thể phù hợp với em như: Nông nghiệp / Lâm nghiệp; Quản trị/sửa chữa máy móc; Cơ khí (chế tạo máy, bảo trì và sữa chữa thiết bị, luyện kim, cơ khí ứng dụng, tự động...), Điện - điện tử, địa lý - địa chất (đo đạc, vẽ bản đồ địa chính), dầu khí, hải dương học, Máy tính; Xây dựng; Thợ máy / Công nhân cơ khí; Kỹ sư kỹ thuật; Ngành Dịch vụ; Nấu ăn</item>
+        <item>Em trội ở lĩnh vực Nghệ thuật: Những người có chỉ số cao ở lĩnh vực này là những người khả năng về trực giác, khả năng tưởng tượng cao, thích làm việc trong các môi trường mang tính ngẫu hứng, không khuôn mẫu. Những chuyên ngành có thể phù hợp với em như: Các ngành về văn chương; báo chí (bình luận viên, dẫn chương trình…); điện ảnh, sân khấu, mỹ thuật, ca nhạc, múa, kiến trúc, thời trang, hội họa, giáo viên dạy sử/Anh văn, bảo tàng, bảo tồn... Em cũng có thể phù hợp với ngành chăm sóc sắc đẹp; Nghệ thuật trình diễn; Thiết kế nội thất; Kiến trúc sư; Nhiếp ảnh….</item>
+        <item>Em trội ở lĩnh vực Thuyết phục. Những người có chỉ số cao ở lĩnh vực này là những người không chỉ thích làm việc với người khác, em còn muốn thuyết phục người khác.  Họ có khả năng về kinh doanh, mạnh bạo, dám nghĩ dám làm, có khả năng quản lý. Những chuyên ngành có thể phù hợp với em như: Các ngành về quản trị kinh doanh (quản lý khách sạn, quản trị nhân sự…), thương mại, marketing, kế toán – tài chính, luật sư, dịch vụ khách hàng, tiếp viên hàng không, thông dịch viên, pha chế rượu, kỹ sư kỹ thuật hệ thống công nghiệp, bác sĩ cấp cứu, quy hoạch đô thị, báo chí (phóng viên, biên tập viên…)… Em cũng có thể thành công trong ngành Luật ; Chính trị ; Ngoại thương ;  và Ngân hàng</item>
+    </string-array>
+
+
+    <!--dialog-->
+    <string name="notice_dialog_default_ok">OK</string>
+
+    <string name="can_not_connect_to_server">Kết nối tới máy chủ không thành công</string>
+    <string name="retry">Thử kết nối lại</string>
+    <string name="send_token">Bearer %s</string>
+</resources>

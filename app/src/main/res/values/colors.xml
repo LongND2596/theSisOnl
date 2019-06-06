@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#334B7B</color>
+    <color name="colorPrimaryDark">#334B7B</color>
+    <color name="colorAccent">#334B7B</color>
+    <color name="my_statusbar_color">#0083D7</color>
+    <!-- main screen -->
+    <color name="main_text_select">#EF5353</color>
+    <color name="main_text">#A4A6A8</color>
+    <!-- fragment user-->
+    <color name="bg_user">#334B7B</color>
+
+    <color name="color_bg_view_select">#d9d8d8</color>
+    <!--charts -->
+    <color name="stroke_chart">#E8EDF0</color>
+    <color name="content_chart">#59FF6666</color>
+
+    <color name="trans">#00FFFFFF</color>
+
+    <color name="bg_charts">#E8EDF0</color>
+    <color name="text_charts">#929191</color>
+
+    <color name="point_bg">#fff</color>
+    <color name="point_a">#B053C2</color>
+    <color name="point_b">#3D6DFF</color>
+    <color name="point_c">#F36959</color>
+    <color name="point_d">#FDA409</color>
+    <color name="point_e">#3EB82E</color>
+
+    <color name="tric_one">#6E8EFD</color>
+    <color name="tric_two">#6485F9</color>
+    <color name="tric_three">#6181F2</color>
+    <color name="tric_four">#6485F9</color>
+    <color name="tric_five">#6989FF</color>
+
+    <color name="stroke_row">#BEE6E3E3</color>
+    <color name="stroke_column">#C6E2DFDF</color>
+    <color name="stroke_row_end">#000</color>
+
+    <color name="row1_1">#e53935</color>
+    <color name="row1_2">#d32f2f</color>
+    <color name="row1_3">#c62828</color>
+
+    <color name="row2_1">#43A047</color>
+    <color name="row2_2">#388E3C</color>
+    <color name="row2_3">#2E7D32</color>
+
+    <color name="row3_1">#FDD835</color>
+    <color name="row3_2">#FBC02D</color>
+    <color name="row3_3">#F9A825</color>
+
+    <color name="row4_1">#3949AB</color>
+    <color name="row4_2">#303F9F</color>
+    <color name="row4_3">#283593</color>
+
+    <color name="row5_1">#6D4C41</color>
+    <color name="row5_2">#5D4037</color>
+    <color name="row5_3">#4E342E</color>
+
+    <color name="row6_1">#FB8C00</color>
+    <color name="row6_2">#F57C00</color>
+    <color name="row6_3">#EF6C00</color>
+
+    <color name="white">@android:color/white</color>
+    <color name="color_text_brown">#61402c</color>
+
+    <color name="color_yellow_shadow">#6ff9e78d</color>
+    <color name="color_yellow_dark">#fffff129</color>
+
+</resources>

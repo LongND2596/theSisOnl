@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="#454494">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logo"/>
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+                android:id="@+id/webTutorial"
+                android:layout_above="@id/btnStartApp"
+                android:layout_below="@id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_dot_rectangle">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="15dp">
+                <TextView
+                        android:textColor="#334B7B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GIỚI THIỆU"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+
+                <View
+                        android:layout_marginTop="5dp"
+                        android:layout_width="80dp"
+                        android:layout_height="1dp"
+                        android:background="#334B7B"/>
+
+                <View
+                        android:layout_marginTop="5dp"
+                        android:layout_width="80dp"
+                        android:layout_height="1dp"
+                        android:background="#334B7B"/>
+
+                <TextView
+                        android:layout_marginTop="20dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="     Hệ thống này cho phép người sử dụng kiểm tra được những vấn đề tâm lý mà đang gặp phải và người được trắc nghiệm sẽ có cơ hội được hiểu rõ về bản thân mình hơn. Có thể là cảm xúc, tình cảm, nhân cách, năng lực… hoặc là những khó khăn trong tâm lý của bản thân. Website được thiết kế với mong muốn có thể cung cấp cho người dùng một số bài trắc nghiệm tâm lí học phổ biến để tử đó có thể đánh giá một cách khách quan về bản thân.."/>
+                <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/rsz_001"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. Tính năng nổi bật"
+                        android:textStyle="bold"
+                        android:textColor="#334B7B"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Câu hỏi đa dạng"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#334B7B"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="Trắc nghiệm nhân cách NEO, trắc nghiệm hứng thú nghề nghiệp RIASEC, trắc nghiệm sàng lọc khó khăn tâm lý..."
+                        android:textColor="@android:color/black"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nhanh chóng"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#334B7B"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="Hiển thị kết quả ngay sau khi làm trắc nghiệm..."
+                        android:textColor="@android:color/black"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cập nhật thường xuyên"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#334B7B"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="Dữ liệu câu hỏi được cập nhật thường xuyên, liên tục..."
+                        android:textColor="@android:color/black"
+                        android:layout_marginTop="5dp"/>
+
+                <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/rsz_102"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2. Trắc nghiệm"
+                        android:textStyle="bold"
+                        android:textColor="#334B7B"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trắc nghiệm nhân cách NEO"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#334B7B"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="Đánh giá toàn diện nhân cách thanh niên và người trưởng thành."
+                        android:textColor="@android:color/black"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trắc nghiệm hứng thú nghề nghiệp RIASEC"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#334B7B"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="Bộ trắc nghiệm này giúp cho bạn tự phát hiện được các kiểu người trội nhất đang tiềm ẩn trong con người mình để tự định hướng khi lựa chọn nghề."
+                        android:textColor="@android:color/black"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trắc nghiệm sàng lọc khó khăn tâm lý"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#334B7B"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="Bài đánh giá giúp bạn đưa ra những khó khăn về trạng thái tâm lý."
+                        android:textColor="@android:color/black"
+                        android:layout_marginTop="5dp"/>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+                android:id="@+id/btnStartApp"
+                android:background="#454494"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:text="Bắt đầu sử dụng"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
+    </RelativeLayout>
+</layout>

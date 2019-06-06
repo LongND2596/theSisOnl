@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_button_start_test"
+            android:text="Bắt đầu"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/ivQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_neo_question" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btnStart"
+            android:layout_below="@id/ivQuestion">
+
+            <TextView
+                android:id="@+id/tvDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:lineSpacingMultiplier="1.8"
+                android:textColor="@color/bg_user"
+                android:textSize="16sp" />
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+</layout>

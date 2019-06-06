@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_toast_error"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_layout_toast_error">
+    <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_close"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+    <TextView
+            android:layout_toRightOf="@id/ivClose"
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:text="Thông tin đăng nhập sai"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_height="40dp"/>
+</RelativeLayout>

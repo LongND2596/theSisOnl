@@ -1,0 +1,131 @@
+1@ 0@ Em bị khô miệng.
+1@ 1@ Em bị rối loạn nhịp thở (thở gấp, khó thở dù chẳng làm việc gì nặng nhọc).
+1@ 2@ Em bị ra mồ hôi (chẳng hạn như mồ hôi tay,…).
+1@ 3@ Em lo lắng về những tình huống có thể làm em hoảng sợ hoặc biến em thành trò cười.
+1@ 4@ Em cảm thấy mình gần như hoảng loạn.
+1@ 5@ Em nghe thấy rõ tiếng nhịp tim dù chẳng làm việc gì cả (ví dụ tiếng nhịp tim tăng, tiếng tim loạn nhịp).
+1@ 6@ Em hay cảm thấy lo sợ vô cớ.
+2@ 0@ Em dường như chẳng có cảm xúc tích cực nào
+2@ 1@ Em cảm thấy rất khó để bắt tay vào công việc
+2@ 2@ Em cảm thấy mình chẳng có gì để mong đợi cả
+2@ 3@ Em cảm thấy chán nản và thất vọng
+2@ 4@ Em không thấy hăng hái với bất kì việc gì nữa
+2@ 5@ Em cảm thấy mình chẳng đáng làm người
+2@ 6@ Em cảm thấy cuộc sống vô nghĩa
+3@ 0@ Em cảm thấy khó mà thoải mái được.
+3@ 1@ Em có xu hướng phản ứng thái quá với mọi tình huống.
+3@ 2@ Em cảm thấy mình đang suy nghĩ quá nhiều.
+3@ 3@ Em thấy bản thân dễ bị kích động.
+3@ 4@ Em thấy khó thư giãn được.
+3@ 5@ Em không thể chấp nhận được việc có cái gì đó xen vào cản trở việc em đang làm.
+3@ 6@ Em cảm thấy mình khá dễ phật ý, tự ái.
+4@ 0@ Em gặp khó khăn trong việc chú ý/ tập trung vào các chi tiết hoặc mắc lỗi sai trong bài tập.
+4@ 1@ Em gặp khó khăn trong việc duy trì sự chú ý vào các nhiệm vụ hoặc hoạt động.
+4@ 2@ Em không lắng nghe khi đang nói chuyện trực tiếp với người khác.
+4@ 3@ Em không làm theo hướng dẫn và không hoàn thành công việc/nhiệm vụ được giao.
+4@ 4@ Em gặp khó khăn trong việc tổ chức các nhiệm vụ và hoạt động.
+4@ 5@ Em né tránh, không thích hoặc không sẵn sàng tham gia vào những nhiệm vụ đòi hỏi sự nỗ lực trí tuệ.
+4@ 6@ Em đánh mất những thứ cần thiết cho nhiệm vụ hoặc các hoạt động (ví dụ như dụng cụ học tập, bút, tẩy, thước kẻ…).
+4@ 7@ Em dễ bị phân tán (sao nhãng).
+4@ 8@ Em hay quên các hoạt động hàng ngày.
+5@ 0@ Em cảm thấy như thể “luôn chân luôn tay” hoặc “được gắn động cơ” vậy.
+5@ 1@ Em gặp khó khăn khi phải đợi đến lượt của mình.
+5@ 2@ Em ngắt lời hoặc xen vào chuyện của người khác.
+5@ 3@ Em buột miệng nói câu trả lời trước khi được hỏi xong.
+5@ 4@ Em rời chỗ ngồi ở trong lớp học hoặc trong những tình huống cần phải ngồi yên.
+5@ 5@ Em là nói quá nhiều.
+5@ 6@ Em cảm thấy bồn chồn.
+5@ 7@ Em gặp khó khăn khi tham gia các hoạt động giải trí hoặc vui chơi trong yên lặng.
+5@ 8@ Em thấy tay chân bồn chồn hoặc vặn vẹo người khi phải ngồi một chỗ.
+6@ 0@ Em gặp khó khăn trong việc đưa ra ý kiến hoặc bộc lộ cảm xúc.
+6@ 1@ Em gặp khó khăn trong việc quan sát, học tập và thực hiện các quy tắc ứng xử (Ví dụ: nói “xin vui lòng/ cảm ơn”; chia sẻ với người khác;…).
+6@ 2@ Em không tham gia vào các cuộc trò chuyện với bạn bè/ người lớn tuổi hơn.
+6@ 3@ Em gặp khó khăn trong việc tương tác xã hội với người khác.
+6@ 4@ Em thiếu sự chủ động, sáng tạo và/ hoặc sự đa dạng trong những tương tác bằng lời nói (ví dụ: lặp lại một từ/ cụm từ nhiều lần).
+6@ 5@ Em có những câu nói quá mô phạm hoặc giọng điệu ê a như ông cụ non.
+6@ 6@ Gặp khó khăn trong việc phản hồi sự giao tiếp của người khác.
+6@ 7@ Em gặp khó khăn trong việc đưa ra chủ đề khi giao tiếp và có xu hướng nói chuyện lạc đề.
+6@ 8@ Em gặp khó khăn trong việc tham gia các cuộc thảo luận phải chờ đợi lần lượt nói.
+6@ 9@ Em phản ứng chậm hoặc không biết cách phản ứng phù hợp trong các tình huống phù hợp (Ví dụ: khi được hỏi “Tên của bạn là gì” - Trả lời “Tôi ổn”).
+6@ 10@ Em bối rối khi nhìn vào khuôn mặt hoặc mắt của người khác.
+6@ 11@ Em gặp khó khăn để nói những câu hoàn chỉnh về mặt ngữ pháp (Ví dụ: nói “bóng dưới bàn” thay vì “quả bóng ở dưới gầm bàn”).
+6@ 12@ Em ngắt lời của người khác mà không để ý đến hành vi của họ.
+6@ 13@ Em gặp khó khăn trong việc trả lời một cách logic hay đưa ra những câu trả lời phù hợp cho các câu hỏi.
+6@ 14@ Em gặp khó khăn trong việc hiểu những câu thành ngữ, tục ngữ, ẩn dụ, chơi chữ, câu đố.
+6@ 15@ Em gặp khó khăn trong việc sử dụng từ đồng nghĩa, trái nghĩa, đồng âm (ví dụ: xinh/ đẹp; lên/ xuống; cho/ tro).
+6@ 16@ Em gặp khó khăn trong việc hiểu về mối quan hệ nguyên nhân – hệ quả.
+7@ 0@ Em gặp khó khăn trong việc đọc tài liệu học tập.
+7@ 1@ Em phải dành nhiều thời gian học bài hơn bạn cùng lớp.
+7@ 2@ Trí nhớ của em không được tốt.
+7@ 3@ Em gặp khó khăn trong việc viết đúng chính tả.
+7@ 4@ Em gặp khó khăn trong việc tìm ra lỗi sai trong bài viết của chính mình.
+7@ 5@ Em gặp khó khăn trong việc diễn đạt bằng văn viết dù em đã có ý tưởng.
+7@ 6@ Em gặp khó khăn trong việc hiểu và nhớ những gì em đã đọc.
+7@ 7@ Em gặp khó khăn trong việc giải các bài toán.
+8@ 0@ Đối với em, công việc không có nhiều ý nghĩa trong cuộc sống này.
+8@ 1@ Em gặp khó khăn trong việc đưa ra quyết định.
+8@ 2@ Em có xu hướng né tránh những vấn đề cần phải cam kết hoặc hứa hẹn.
+8@ 3@ Em cảm thấy sợ hãi đối với việc bị thất bại.
+8@ 4@ Em tin rằng ngoài kia có một công việc lý tưởng mà có thể giúp đạt được mọi khát vọng.
+8@ 5@ Em không biết những đặc điểm của bản thân thì có thể phù hợp với những yếu tố nào của công việc.
+8@ 6@ Em không biết mình có những khả năng gì.
+8@ 7@ Em thiếu thông tin về những nghề nghiệp được ưa chuộng.
+8@ 8@ Em không biết nghề nghiệp mà mình yêu thích là gì.
+8@ 9@ Em không biết trong tương lai những công việc như thế nào sẽ được ưa chuộng.
+8@ 10@ Hiện nay có rất nhiều sự lựa chọn nghề nghiệp và nơi đào tạo nhưng em lại thiếu thông tin về việc đó.
+8@ 11@ Em thiếu thông tin về những đặc điểm của công việc và những tiêu chí lựa chọn nơi đào tạo trong tương lai mà các cá nhân nên biết.
+8@ 12@ Em không biết cách để có được những thành tích bổ sung vào hồ sơ của bản thân.
+8@ 13@ Có một vài công việc rất thu hút và em không biết nên lựa chọn công việc nào.
+8@ 14@ Có một vài công việc em có thể làm được nhưng em lại không thích nó.
+8@ 15@ Có một công việc mà em yêu thích hơn cả nhưng nó lại có một số thứ gây rắc rối.
+8@ 16@ Những điều mà em mong muốn lại không thể tồn tại trong cùng một công việc.
+8@ 17@ Đối với những công việc em yêu thích thì em lại không có đủ khả năng.
+8@ 18@ Năng lực của em cao hơn nhiều so với yêu cầu của công việc mà em yêu thích.
+8@ 19@ Có sự bất đồng quan điểm về lựa chọn nghề nghiệp giữa những người quan trọng đối với em.
+9@ 0@ Em cảm thấy buồn, khó chịu hoặc tội lỗi, v.v. khi bị bố mẹ la mắng.
+9@ 1@ Em cảm thấy buồn, khó chịu, thất vọng, tức giận, v.v. khi bị ép buộc làm theo ý của bố mẹ.
+9@ 2@ Em gặp khó khăn trong việc nói chuyện với bố mẹ.
+9@ 3@ Em cảm thấy không ổn (buồn, thất vọng, khó chịu,v.v.) khi bố mẹ không hiểu em.
+9@ 4@ Em cảm thấy không ổn (buồn, thất vọng, khó chịu,v.v.) khi bố mẹ không tôn trọng ý kiến của em.
+9@ 5@ Em cảm thấy không ổn (buồn, thất vọng, khó chịu,v.v.) khi bố mẹ thờ ơ với em.
+10@ 0@ Em gặp khó khăn trong việc chủ động thiết lập các mối quan hệ với thầy cô giáo.
+10@ 1@ Em gặp khó khăn trong việc chia sẻ chuyện cá nhân với thầy cô giáo.
+10@ 2@ Em gặp khó khăn trong việc trao đổi nội dung, phương pháp học tập với thầy cô giáo.
+10@ 3@ Em gặp mâu thuẫn với thầy cô giáo.
+10@ 4@ Em gặp khó khăn đối với việc đối xử thiếu công bằng của thầy cô giáo với các bạn trong lớp.
+11@ 0@ Em gặp khó khăn trong việc thiết lập các mối quan hệ với bạn bè.
+11@ 1@ Em cảm thấy khó khăn/ không thoải mái về việc phân biệt đối xử, xa lánh của bạn bè.
+11@ 2@ Em cảm thấy áp lực khi bạn bè hơn em.
+11@ 3@ Em cảm thấy khó chịu/ gặp khó khăn khi bị bạn bè trong trường lớp bắt nạt (đe dọa, mắng chửi, bắt buộc làm theo).
+11@ 4@ Em cảm thấy không ổn (khó chịu, tổn thương) khi bị bạn bè trong lớp đánh.
+11@ 5@ Em gặp khó khăn/ cảm thấy khó chịu khi mâu thuẫn với bạn bè.
+11@ 6@ Em gặp khó khăn trong việc tâm sự với bạn bè.
+11@ 7@ Em cảm thấy khó chịu khi các bạn quan tâm đến chuyện riêng tư của em.
+11@ 8@ Em gặp khó khăn trong việc tham gia các trò chơi cùng bạn bè trong trường lớp.
+12@ 0@ Em cãi nhau với người lớn.
+12@ 1@ Em tức giận đến mức mất kiểm soát.
+12@ 2@ Em cố ý/ chủ động không tuân theo hoặc từ chối làm theo yêu cầu hoặc quy định của người lớn.
+12@ 3@ Em cố ý quấy rối người khác.
+12@ 4@ Em mắc lỗi nhưng em đổ tội cho người khác.
+12@ 5@ Em dễ tự ái và bực mình bởi người khác.
+12@ 6@ Em cảm thấy tức giận hoặc cay đắng.
+12@ 7@ Em cảm thấy hằn học và sẽ trả thù đối phương.
+13@ 0@ Em bắt nạt, đe dọa hoặc làm người khác sợ.
+13@ 1@ Em là người khởi xướng việc đánh nhau.
+13@ 2@ Em nói dối để né tránh rắc rối hoặc tránh nhiệm vụ.
+13@ 3@ Em nghỉ học không phép hoặc trốn tiết.
+13@ 4@ Em đánh, đá hoặc làm người khác bị thương.
+13@ 5@ Em ăn trộm những thứ có giá trị.
+13@ 6@ Em phá hoại đồ đạc của người khác một cách có chủ ý.
+13@ 7@ Em đã từng đột nhập vào nhà, cơ quan làm việc hoặc không gian riêng tư của người khác mà không có sự cho phép.
+13@ 8@ Em đã từng qua đêm bên ngoài mà không có sự cho phép.
+13@ 9@ Em đã từng cưỡng ép ai đó thực hiện hành vi tình dục.
+14@ 0@ Em sẽ đánh nhau nếu bị khiêu khích.
+14@ 1@ Em đánh nhau nhiều hơn so với các bạn khác.
+14@ 2@ Em sẽ sử dụng bạo lực để bảo vệ quyền lợi của mình nếu điều đó là cần thiết.
+14@ 3@ Em đã từng trở nên điên tiết đến nỗi em phá hỏng mọi thứ.
+14@ 4@ Em không thể ngừng tranh cãi khi mọi người không đồng tình với em.
+14@ 5@ Em rất dễ nổi cáu.
+14@ 6@ Đôi khi em cảm thấy mình như một thùng thuốc nổ và luôn sẵn sàng phát nổ.
+14@ 7@ Bạn bè nghĩ em là người nóng tính.
+14@ 8@ Em gặp khó khăn trong việc kiểm soát cơn giận.

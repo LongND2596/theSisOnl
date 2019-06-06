@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+        <Button
+                android:id="@+id/btnNeo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:text="Nạp câu hỏi NEO"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/bg_user"
+                android:textAllCaps="false"/>
+
+        <Button
+                android:id="@+id/btnRiasec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:text="Nạp câu hỏi RIASEC"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/bg_user"
+                android:textAllCaps="false"/>
+
+        <Button
+                android:id="@+id/btnPsyPocholigical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:text="Nạp câu hỏi sàng lọc khó khăn tâm lý"
+                android:textColor="@color/bg_user"
+                android:textAllCaps="false"/>
+    </LinearLayout>
+
+</layout>

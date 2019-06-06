@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="customer_input_margin">16dp</dimen>
+    <dimen name="customer_input_text_size_small">20sp</dimen>
+    <dimen name="customer_input_padding">16dp</dimen>
+    <dimen name="customer_input_text_size_high">24sp</dimen>
+    <dimen name="custom_input_margin_button">12dp</dimen>
+
+    <!--Dialog-->
+    <dimen name="term_rounded_radius">40dp</dimen>
+    <dimen name="dialog_content_padding">16dip</dimen>
+    <dimen name="dialog_confirm_padding">20dip</dimen>
+    <dimen name="padding_hor_login_widgets">12dp</dimen>
+    <dimen name="margins_login_widgets">4dp</dimen>
+    <dimen name="activity_login_edit_text_corner_radius">8dp</dimen>
+    <dimen name="activity_login_edit_text_padding">16dp</dimen>
+    <dimen name="pink_button_corner_radius">4dp</dimen>
+    <dimen name="logout_bg_corner_radius">12dp</dimen>
+    <dimen name="activity_login_edit_text_size">14sp</dimen>
+    <dimen name="pink_button_text_size">16sp</dimen>
+    <dimen name="yellow_button_corner_radius">4dp</dimen>
+    <dimen name="activity_login_forgot_pwd_text_size">12sp</dimen>
+    <dimen name="activity_login_back_to_reg_btn_hor_mar">12dp</dimen>
+    <dimen name="dialog_re_issue_password_label_size">16sp</dimen>
+    <dimen name="dialog_confirm_button_margin">4sp</dimen>
+
+    <dimen name="text_size_big">16sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <color name="color_yellow_light">#fffae60a</color>
+</resources>

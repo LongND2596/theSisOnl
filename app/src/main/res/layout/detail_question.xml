@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_detail_question"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/content_question"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fadeScrollbars="false"
+            android:scrollbars="vertical">
+
+            <RadioGroup
+                android:id="@+id/layoutResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/seperator1"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult01"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator2"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult02"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator3"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult03"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator4"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult04"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator5"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult05"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator6"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult06"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator7"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult07"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator8"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult08"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator9"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult09"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator10"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult10"
+                    style="@style/CustomRadioButton" />
+
+                <View
+                    android:id="@+id/seperator11"
+                    style="@style/HorizontalSeperator" />
+
+                <RadioButton
+                    android:id="@+id/btnResult11"
+                    style="@style/CustomRadioButton" />
+
+                <View style="@style/HorizontalSeperator" />
+            </RadioGroup>
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:focusable="true">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+                android:layout_centerInParent="true"
+                android:id="@+id/progressBar"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                style="@style/SpinKitView.Large.Circle"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@android:color/white"/>
+
+    </RelativeLayout>
+</layout>

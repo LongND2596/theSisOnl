@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/rounded_white_background"
+    android:clickable="true"
+    android:padding="@dimen/dialog_content_padding">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dialog_content_padding"
+        android:textColor="@color/color_text_brown"
+        android:textSize="@dimen/text_size_medium"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:gravity="center"
+        android:textColor="@color/color_text_brown"
+        android:textSize="@dimen/text_size_medium" />
+
+    <TextView
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_message"
+        android:layout_marginTop="@dimen/dialog_content_padding"
+        android:background="@drawable/btn_dialog_rounded"
+        android:gravity="center"
+        android:padding="@dimen/dialog_content_padding"
+        android:text="@string/notice_dialog_default_ok"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold" />
+</RelativeLayout>

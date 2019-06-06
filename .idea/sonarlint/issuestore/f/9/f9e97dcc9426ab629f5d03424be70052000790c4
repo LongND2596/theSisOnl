@@ -1,0 +1,8 @@
+
+Ÿsquid:S1186F"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¸‘·8è³ê¦-
+@squid:S1604‘"(Make this anonymous inner class a lambda(†£°î
+˜squid:S1186h"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(”ÀÙ°
+™squid:S1186Œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¡é††
+Jsquid:S1612L",Replace this lambda with a method reference.(ËØä©8è³ê¦-
+~squid:S1450"`Remove the "customerViewModel" field and declare it as a local variable in the relevant methods.(¸¿Ú÷8ñúôÍ¦-
+Ssquid:S1068"5Remove this unused "customerViewModel" private field.(¸¿Ú÷8ñúôÍ¦-

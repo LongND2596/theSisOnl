@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/tvTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@id/ivCustomer"
+                android:gravity="center"
+                android:text="@string/customer_title"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"/>
+
+        <TextView
+                android:id="@+id/tvTitle5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivCustomer"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Bạn có thực sự hiểu rõ về bản thân?"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"/>
+
+        <ImageView
+                android:id="@+id/ivCustomer"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/icon_customer"/>
+
+        <LinearLayout
+                android:layout_below="@id/tvTitle5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_layout_input_user"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+            <TextView
+                    android:id="@+id/tvTitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="TuvanHoc"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+
+            <TextView
+                    android:id="@+id/tvTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvTitle2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="Register a new membership"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"/>
+
+            T<EditText
+                    android:id="@+id/editFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/tvTitle3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_edittext_user"
+                    android:drawableRight="@drawable/ic_full_name"
+                    android:padding="10dp"/>
+
+            <EditText
+                    android:id="@+id/editEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/tvTitle3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_edittext_user"
+                    android:drawableRight="@drawable/ic_email"
+                    android:padding="10dp"/>
+
+            <EditText
+                    android:id="@+id/editPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/editEmail"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_edittext_user"
+                    android:drawableRight="@drawable/ic_password"
+                    android:inputType="textPassword"
+                    android:padding="10dp"/>
+
+            <EditText
+                    android:id="@+id/editConfirmPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/editEmail"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_edittext_user"
+                    android:drawableRight="@drawable/ic_confirm_pass"
+                    android:inputType="textPassword"
+                    android:padding="10dp"/>
+
+            <Button
+                    android:id="@+id/btnSignUp"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/editPass"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bg_text_signup"
+                    android:text="Rigister"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"/>
+
+            <TextView
+                    android:id="@+id/tvSignIn"
+                    android:gravity="center"
+                    android:textColor="#3C8DBC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I already have a membership"
+                    android:layout_marginTop="5dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
