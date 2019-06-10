@@ -391,10 +391,10 @@ public class Utils {
      * - Có ký tự số : 0 -> 9
      * - Có ký tự thường : a -> z
      * - Có ký tự hoa : A -> Z
-     * - Có ký tự đặc biệt:
+     * - Có ký tự đặc biệt: !.#$@_+,?-
      * - Có độ dài từ 6 đến 50 ký
      */
-    private static final String PASSWORD_PATTERN = "((?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!.#$@_+,?-]).{6,50})";
+    private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!.#$@_+,?-]).{6,50})";
 
     /**
      * Use check the validity of the password string
