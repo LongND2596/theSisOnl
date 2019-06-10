@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProviders;
+
 import longnd.thesis.R;
 import longnd.thesis.data.base.ObjectResponse;
 import longnd.thesis.databinding.ActivitySplashBinding;
@@ -28,6 +29,7 @@ import longnd.thesis.utils.ToastUtils;
 public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplashBinding> {
     private CustomerViewModel customerViewModel;
     private DialogBuilder.NoticeDialog mRetryDialog;
+    private String verisonApp;
 
     @Override
     protected void initView() {
@@ -92,22 +94,35 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
     protected void initData() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(SplashViewModel.class);
         customerViewModel = ViewModelProviders.of(this, viewModelFactory).get(CustomerViewModel.class);
-        // kiểm tra có kết nối mạng
-        if (NetworkUtils.hasConnection(SplashActivity.this)) {
-            doRequestConfiguration();
+
+        /**
+         * Select the app
+         */
+        String versionApp = SharedPrefs.getInstance().getString(Define.SharedPref.KEY_SELECT_SYNC, Define.SharedPref.VALUE_DEFAULT_SELECT_SYNC);
+        if (versionApp.equals(Define.SharedPref.VALUE_DEFAULT_SELECT_SYNC)) {
+            binding.selectTheApp.setVisibility(View.VISIBLE);
         } else {
-            showRetryConnectionDialog();
+            openVersionApp();
         }
     }
 
     @Override
     protected void initListenerOnClick() {
+        binding.imageOnline.setOnClickListener(this);
+        binding.textCheckOnline.setOnClickListener(this);
+        binding.checkOnline.setOnClickListener(this);
 
+        binding.imageOffline.setOnClickListener(this);
+        binding.textCheckOffline.setOnClickListener(this);
+        binding.checkOffline.setOnClickListener(this);
+
+        binding.buttonSelected.setOnClickListener(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        verisonApp = Define.VERSION_ONL;
         initObserve();
     }
 
@@ -138,23 +153,74 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.imageOnline:
+            case R.id.textCheckOnline:
+            case R.id.checkOnline:
+                binding.checkOnline.setBackgroundResource(R.drawable.bg_select_checkbox);
+                binding.checkOffline.setBackgroundResource(R.drawable.bg_no_select_checkbox);
+                verisonApp = Define.VERSION_ONL;
+                break;
+
+            case R.id.imageOffline:
+            case R.id.textCheckOffline:
+            case R.id.checkOffline:
+                binding.checkOnline.setBackgroundResource(R.drawable.bg_no_select_checkbox);
+                binding.checkOffline.setBackgroundResource(R.drawable.bg_select_checkbox);
+                verisonApp = Define.VERSION_OFF;
+                break;
+
+            case R.id.buttonSelected:
+                if (binding.checkBoxSaveSelected.isChecked()) {
+                    SharedPrefs.getInstance().putString(Define.SharedPref.KEY_SELECT_SYNC, verisonApp);
+                }
+                binding.selectTheApp.setVisibility(View.GONE);
+                openVersionApp();
+                break;
+        }
+    }
+
+    /**
+     * Open the corresponding application version
+     */
+    private void openVersionApp() {
+        if (verisonApp.equals(Define.VERSION_ONL)) {
+            openOnline();
+        } else {
+            openOffline();
+        }
+    }
+
+    /**
+     * Open application offline
+     */
+    private void openOffline() {
 
     }
 
+    /**
+     * Open application online
+     */
+    private void openOnline() {
+        // kiểm tra có kết nối mạng
+        if (NetworkUtils.hasConnection(SplashActivity.this)) {
+            doRequestConfiguration();
+        } else {
+            showRetryConnectionDialog();
+        }
+    }
+
     private void openWorkingScreen() {
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent;
-                if (!SharedPrefs.getInstance().getBoolean(Define.SharedPref.KEY_IS_FIRST, false)) {
-                    intent = new Intent(SplashActivity.this, TutorialActivity.class);
-                } else {
-                    intent = new Intent(SplashActivity.this, MainActivity.class);
-                }
-                startActivity(intent);
-                finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        handler.postDelayed(() -> {
+            Intent intent;
+            if (!SharedPrefs.getInstance().getBoolean(Define.SharedPref.KEY_IS_FIRST, false)) {
+                intent = new Intent(SplashActivity.this, TutorialActivity.class);
+            } else {
+                intent = new Intent(SplashActivity.this, MainActivity.class);
             }
+            startActivity(intent);
+            finish();
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }, 2000);
     }
 }

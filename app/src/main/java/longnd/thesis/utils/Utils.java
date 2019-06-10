@@ -24,6 +24,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import longnd.thesis.R;
 import longnd.thesis.data.entity.User;
@@ -384,4 +386,25 @@ public class Utils {
         return MAX_SCORE - score;
     }
 
+    /**
+     * Thoả mãn điều kiện:
+     * - Có ký tự số : 0 -> 9
+     * - Có ký tự thường : a -> z
+     * - Có ký tự hoa : A -> Z
+     * - Có ký tự đặc biệt:
+     * - Có độ dài từ 6 đến 50 ký
+     */
+    private static final String PASSWORD_PATTERN = "((?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!.#$@_+,?-]).{6,50})";
+
+    /**
+     * Use check the validity of the password string
+     *
+     * @param pass password for validation
+     * @return true valid password, false invalid password
+     */
+    public static Boolean isValidPassword(String pass) {
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        Matcher matcher = pattern.matcher(pass);
+        return matcher.matches();
+    }
 }

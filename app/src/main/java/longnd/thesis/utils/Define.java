@@ -6,6 +6,8 @@ public class Define {
     public static final long CLICK_TIME_INTERVAL = 300L;
     public static final String TYPE_QUESTION = "type_question";
     public static final int DEFAULT_VALUE = -1;
+    public static final String VERSION_ONL = "TheSISOnline";
+    public static final String VERSION_OFF = "TheSISOffline";
 
     public class ResponseStatus {
         public static final int LOADING = 1;
@@ -56,6 +58,8 @@ public class Define {
         public static final String KEY_SAVE_QUESTION = "save_question";
         public static final String KEY_NEXT_TAP = "next_tap";
         public static final String KEY_TOKEN = "ass_token";
+        public static final String KEY_SELECT_SYNC = "sync";
+        public static final String VALUE_DEFAULT_SELECT_SYNC = "none";
     }
 
     public class Result {
