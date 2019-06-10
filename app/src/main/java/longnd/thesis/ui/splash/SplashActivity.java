@@ -29,7 +29,7 @@ import longnd.thesis.utils.ToastUtils;
 public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplashBinding> {
     private CustomerViewModel customerViewModel;
     private DialogBuilder.NoticeDialog mRetryDialog;
-    private String verisonApp;
+    private String versionApp;
 
     @Override
     protected void initView() {
@@ -98,7 +98,7 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
         /**
          * Select the app
          */
-        String versionApp = SharedPrefs.getInstance().getString(Define.SharedPref.KEY_SELECT_SYNC, Define.SharedPref.VALUE_DEFAULT_SELECT_SYNC);
+        versionApp = SharedPrefs.getInstance().getString(Define.SharedPref.KEY_SELECT_SYNC, Define.SharedPref.VALUE_DEFAULT_SELECT_SYNC);
         if (versionApp.equals(Define.SharedPref.VALUE_DEFAULT_SELECT_SYNC)) {
             binding.selectTheApp.setVisibility(View.VISIBLE);
         } else {
@@ -122,7 +122,7 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
     @Override
     protected void onStart() {
         super.onStart();
-        verisonApp = Define.VERSION_ONL;
+        versionApp = Define.VERSION_ONL;
         initObserve();
     }
 
@@ -159,7 +159,7 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
             case R.id.checkOnline:
                 binding.checkOnline.setBackgroundResource(R.drawable.bg_select_checkbox);
                 binding.checkOffline.setBackgroundResource(R.drawable.bg_no_select_checkbox);
-                verisonApp = Define.VERSION_ONL;
+                versionApp = Define.VERSION_ONL;
                 break;
 
             case R.id.imageOffline:
@@ -167,12 +167,12 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
             case R.id.checkOffline:
                 binding.checkOnline.setBackgroundResource(R.drawable.bg_no_select_checkbox);
                 binding.checkOffline.setBackgroundResource(R.drawable.bg_select_checkbox);
-                verisonApp = Define.VERSION_OFF;
+                versionApp = Define.VERSION_OFF;
                 break;
 
             case R.id.buttonSelected:
                 if (binding.checkBoxSaveSelected.isChecked()) {
-                    SharedPrefs.getInstance().putString(Define.SharedPref.KEY_SELECT_SYNC, verisonApp);
+                    SharedPrefs.getInstance().putString(Define.SharedPref.KEY_SELECT_SYNC, versionApp);
                 }
                 binding.selectTheApp.setVisibility(View.GONE);
                 openVersionApp();
@@ -184,7 +184,7 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
      * Open the corresponding application version
      */
     private void openVersionApp() {
-        if (verisonApp.equals(Define.VERSION_ONL)) {
+        if (versionApp.equals(Define.VERSION_ONL)) {
             openOnline();
         } else {
             openOffline();
