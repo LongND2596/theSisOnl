@@ -192,12 +192,12 @@ public class SignUpFragment extends BaseFragment<SignUpViewModel, FragmentSignUp
         }
 
         if (fullname.length() < 6) {
-            showInputError(binding.editFullName, "Fullname tối thiểu 6 ký tự");
+            showInputError(binding.editFullName, "Fullname tối thiểu 6 ký tự");
             return false;
         }
 
         if (email.isEmpty()) {
-            showInputError(binding.editEmail, "Thiếu trường email");
+            showInputError(binding.editEmail, "Thiếu trường email");
             return false;
         }
 
@@ -207,17 +207,22 @@ public class SignUpFragment extends BaseFragment<SignUpViewModel, FragmentSignUp
         }
 
         if (pass.isEmpty()) {
-            showInputError(binding.editPass, "Thiếu trường Password");
+            showInputError(binding.editPass, "Thiếu trường Password");
             return false;
         }
 
         if (pass.length() < 6) {
-            showInputError(binding.editPass, "Password tối thiểu 6 ký tự");
+            showInputError(binding.editPass, "Password tối thiểu 6 ký tự");
+            return false;
+        }
+
+        if (!Utils.isValidPassword(pass)) {
+            showInputError(binding.editPass, "Password cần ít nhất 6 ký tự có cả chữ hoa, thường, số và ký tự đặc biệt!");
             return false;
         }
 
         if (confirmPass.isEmpty()) {
-            showInputError(binding.editConfirmPass, "Nhập lại mật khẩu");
+            showInputError(binding.editConfirmPass, "Nhập lại mật khẩu");
             return false;
         }
 
