@@ -25,6 +25,13 @@ public class QuestionRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Flowable<List<Question>> getQuestions() {
+        return abstractAppDatabase.questionDao()
+                .getQuestions()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Flowable<List<Question>> getQuestionsByType(int type) {
         return abstractAppDatabase.questionDao()
                 .getQuestionsByType(type)

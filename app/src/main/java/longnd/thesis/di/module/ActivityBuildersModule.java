@@ -6,6 +6,7 @@ import longnd.thesis.ui.customer.CustomerFragment;
 import longnd.thesis.ui.customer.signin.SignInFragment;
 import longnd.thesis.ui.customer.signup.SignUpFragment;
 import longnd.thesis.ui.dialog.DialogEditCustomer;
+import longnd.thesis.ui.dialog.DialogEditCustomerOff;
 import longnd.thesis.ui.evaluate.EvaluateActivity;
 import longnd.thesis.ui.evaluate.charts.ChartsFragment;
 import longnd.thesis.ui.evaluate.detail.DetailFragment;
@@ -39,6 +40,9 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract DialogEditCustomer bindEditCustomerDialog();
+
+    @ContributesAndroidInjector
+    abstract DialogEditCustomerOff bindEditCustomerDialogOff();
 
     @ContributesAndroidInjector
     abstract SignInFragment bindSignInCustomerFragment();

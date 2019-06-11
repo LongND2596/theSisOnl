@@ -5,8 +5,10 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.viewpager.widget.ViewPager;
+
 import longnd.thesis.R;
 import longnd.thesis.adapter.QuestionPagerAdapter;
+import longnd.thesis.adapter.QuestionPagerAdapterOff;
 import longnd.thesis.data.base.ObjectResponse;
 import longnd.thesis.data.model.ResultPsy;
 import longnd.thesis.data.model.ResultRiasec;
@@ -23,8 +25,9 @@ import longnd.thesis.utils.PsyLoading;
 import longnd.thesis.utils.SharedPrefs;
 import longnd.thesis.utils.ToastUtils;
 
-public class TestStepTwoFragment extends BaseFragment<TestStepTwoViewModel, FragmentTestStepTwoBinding> implements QuestionPagerAdapter.SaveResult {
+public class TestStepTwoFragment extends BaseFragment<TestStepTwoViewModel, FragmentTestStepTwoBinding> implements QuestionPagerAdapter.SaveResult, QuestionPagerAdapterOff.SaveResult {
     private QuestionPagerAdapter questionPagerAdapter;
+    private QuestionPagerAdapterOff questionPagerAdapterOff;
     private ResultRiasec resultRiasec;
     private ResultPsy resultPsy;
 
@@ -35,14 +38,57 @@ public class TestStepTwoFragment extends BaseFragment<TestStepTwoViewModel, Frag
 
     @Override
     protected void initView() {
-        questionPagerAdapter = new QuestionPagerAdapter(getContext(), testViewModel.getQuestionShows(), viewModel, testViewModel.getType());
-        viewModel.initResults(testViewModel.getQuestionShows().size());
-        questionPagerAdapter.setSaveResult(this);
         binding.mViewPager.setOffscreenPageLimit(5);
-        binding.mViewPager.setAdapter(questionPagerAdapter);
         binding.mViewPager.setAnimationEnabled(true);
         binding.mViewPager.setFadeEnabled(true);
         binding.mViewPager.setFadeFactor(0.5f);
+        if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+            initViewOnl();
+        } else {
+            initViewOff();
+        }
+    }
+
+    /**
+     * InitView Offline
+     */
+    private void initViewOff() {
+        questionPagerAdapterOff = new QuestionPagerAdapterOff(getContext(), testViewModel.getListQuestion(), viewModel, testViewModel.getType());
+        viewModel.initResults(testViewModel.getListQuestion().size());
+        questionPagerAdapterOff.setSaveResult(this);
+
+        binding.mViewPager.setAdapter(questionPagerAdapterOff);
+
+        binding.indicator.setupWithViewPager(binding.mViewPager);
+        binding.tvPage.setText("Page 1" + " of " + testViewModel.getListQuestion().size());
+
+        binding.mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                binding.tvPage.setText("Page " + (position + 1) + " of " + testViewModel.getListQuestion().size());
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    /**
+     * InitView Online
+     */
+    private void initViewOnl() {
+        questionPagerAdapter = new QuestionPagerAdapter(getContext(), testViewModel.getQuestionShows(), viewModel, testViewModel.getType());
+        viewModel.initResults(testViewModel.getQuestionShows().size());
+        questionPagerAdapter.setSaveResult(this);
+
+        binding.mViewPager.setAdapter(questionPagerAdapter);
 
         binding.indicator.setupWithViewPager(binding.mViewPager);
         binding.tvPage.setText("Page 1" + " of " + testViewModel.getQuestionShows().size());
@@ -63,7 +109,6 @@ public class TestStepTwoFragment extends BaseFragment<TestStepTwoViewModel, Frag
 
             }
         });
-
     }
 
     @Override
@@ -158,7 +203,6 @@ public class TestStepTwoFragment extends BaseFragment<TestStepTwoViewModel, Frag
                     viewModel.submitPsy();
                 }
                 break;
-
         }
     }
 
@@ -233,4 +277,66 @@ public class TestStepTwoFragment extends BaseFragment<TestStepTwoViewModel, Frag
             binding.mViewPager.setCurrentItem(position + 1);
         }
     }
+
+
+    // region -> Offline
+
+    @Override
+    public void onSaveDataResult(int position, int result) {
+        viewModel.setDataResults(position, result);
+        if (SharedPrefs.getInstance().getBoolean(Define.SharedPref.KEY_NEXT_TAP, false)) {
+            binding.mViewPager.setCurrentItem(position + 1);
+        }
+    }
+
+    @Override
+    public void onSavePsycho(int position, int kind, int numberId, int result) {
+        onSaveDataResult(position, result);
+        switch (kind) {
+            case 1:
+                viewModel.resultsLoAu[numberId - 1] = result;
+                break;
+            case 2:
+                viewModel.resultsTramCam[numberId - 1] = result;
+                break;
+            case 3:
+                viewModel.resultsStress[numberId - 1] = result;
+                break;
+            case 4:
+                viewModel.resultsKhoTapTrung[numberId - 1] = result;
+                break;
+            case 5:
+                viewModel.resultsTangDong[numberId - 1] = result;
+                break;
+            case 6:
+                viewModel.resultsKKGiaoTiepXaHoi[numberId - 1] = result;
+                break;
+            case 7:
+                viewModel.resultsKKHocTap[numberId - 1] = result;
+                break;
+            case 8:
+                viewModel.resultsKKDinhHuongNgheNghiep[numberId - 1] = result;
+                break;
+            case 9:
+                viewModel.resultsKKQuanHeChaMe[numberId - 1] = result;
+                break;
+            case 10:
+                viewModel.resultsKKQuanHeThayCo[numberId - 1] = result;
+                break;
+            case 11:
+                viewModel.resultsKKQuanHeBanBe[numberId - 1] = result;
+                break;
+            case 12:
+                viewModel.resultsHanhViChongDoi[numberId - 1] = result;
+                break;
+            case 13:
+                viewModel.resultsRoiLoanHanhVi[numberId - 1] = result;
+                break;
+            case 14:
+                viewModel.resultsGayHan[numberId - 1] = result;
+                break;
+        }
+    }
+
+    // endregion
 }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import longnd.thesis.R;
 import longnd.thesis.adapter.QuestionTypeAdapter;
 import longnd.thesis.data.base.ObjectResponse;
@@ -47,6 +48,11 @@ public class HomeFragment extends BaseFragment<HomeViewModel, FramgmentHomeBindi
     @Override
     protected void initObserve() {
         viewModel.getObserveQuestionsType().observe(getViewLifecycleOwner(), this::observeQuestionsType);
+        viewModel.getObserveQuestionsTypeOff().observe(getViewLifecycleOwner(), this::observeQuestionsTypeOff);
+    }
+
+    private void observeQuestionsTypeOff(ObjectResponse<DataQuestionType> objectResponseOff) {
+
     }
 
     private void observeQuestionsType(ObjectResponse<DataQuestionType> objectResponse) {
@@ -66,6 +72,9 @@ public class HomeFragment extends BaseFragment<HomeViewModel, FramgmentHomeBindi
 
     }
 
+    /**
+     * Hiển thị các dạng câu hỏi đánh giá tâm lý ( neo, riasec, psy ... )
+     */
     private void showQuestionsType() {
         questionsType = DataUtils.getInstance().getQuestionsType();
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -100,7 +109,16 @@ public class HomeFragment extends BaseFragment<HomeViewModel, FramgmentHomeBindi
     protected void initData() {
         mainViewModel.setNumberBack(Fields.ON_BACK);
         if (DataUtils.getInstance().getQuestionsType() == null) {
-            viewModel.getListQuestionType();
+            if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+                viewModel.getListQuestionType();
+            } else {
+                List<DataQuestionType.BaseTypeQuestion> listType = new ArrayList<>();
+                listType.add(new DataQuestionType.BaseTypeQuestion("Trắc nghiệm nhân cách NEO", "Đánh giá toàn diện nhân cách thanh niên và người trưởng thành."));
+                listType.add(new DataQuestionType.BaseTypeQuestion("Trắc nghiệm hứng thú nghề nghiệp RIASEC", "Bộ trắc nghiệm này giúp cho bạn tự phát hiện được các kiểu người trội nhất đang tiềm ẩn trong con người mình để tự định hướng khi lựa chọn nghề."));
+                listType.add(new DataQuestionType.BaseTypeQuestion("Trắc nghiệm sàng lọc khó khăn tâm lý", "Bài đánh giá giúp bạn đưa ra những khó khăn về trạng thái tâm lý."));
+                DataUtils.getInstance().setQuestionsType(listType);
+                showQuestionsType();
+            }
         } else {
             showQuestionsType();
         }

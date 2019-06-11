@@ -9,6 +9,7 @@ import longnd.thesis.di.ViewModelFactory;
 import longnd.thesis.ui.customer.CustomerViewModel;
 import longnd.thesis.ui.customer.signin.SignInViewModel;
 import longnd.thesis.ui.customer.signup.SignUpViewModel;
+import longnd.thesis.ui.dialog.EditCustomerOffViewModel;
 import longnd.thesis.ui.dialog.EditCustomerViewModel;
 import longnd.thesis.ui.evaluate.EvaluateViewModel;
 import longnd.thesis.ui.evaluate.charts.ChartsViewModel;
@@ -68,6 +69,11 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(EditCustomerViewModel.class)
     abstract ViewModel bindEditCustomerViewModel(EditCustomerViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(EditCustomerOffViewModel.class)
+    abstract ViewModel bindEditCustomerOffViewModel(EditCustomerOffViewModel viewModel);
 
 
     @Binds

@@ -36,4 +36,6 @@ public class Fields {
     public static final String RIASEC_CONVINCE = "convince"; // thuyết phục
     public static final String KEY_VALUE = "value_result";
     public static final String PATH_AVATAR = "https://danhgiatamly.edu.vn/";
+    public static final int MAX_LOGIN_ERROR = 5;
+    public static final long TIME_LOCK_LOGIN = 5 * 60 * 1000;
 }

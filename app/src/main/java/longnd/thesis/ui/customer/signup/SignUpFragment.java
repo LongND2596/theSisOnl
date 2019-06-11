@@ -1,5 +1,6 @@
 package longnd.thesis.ui.customer.signup;
 
+import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class SignUpFragment extends BaseFragment<SignUpViewModel, FragmentSignUp
     private OnOpenCustomer onOpenCustomer;
     private String email;
     private String pass;
+    private Customer customer;
 
     @Override
     protected void initListenerOnClick() {
@@ -37,9 +39,44 @@ public class SignUpFragment extends BaseFragment<SignUpViewModel, FragmentSignUp
     protected void initObserve() {
         viewModel.getIsInsertCustomer().observe(getViewLifecycleOwner(), this::observeInsertCustomer);
         viewModel.getObserveCustomerByEmail().observe(getViewLifecycleOwner(), this::observeGetCustomer);
+        viewModel.getIsDuplicateEmail().observe(getViewLifecycleOwner(), this::observeDuplicateEmail);
 
         viewModel.getIsRegisterFail().observe(getViewLifecycleOwner(), this::observeRegisterFail);
         viewModel.getIsRegisterSuccess().observe(getViewLifecycleOwner(), this::observeRegisterSuccess);
+    }
+
+    /**
+     * Observer duolicate email : Offline
+     *
+     * @param longObjectResponse
+     */
+    private void observeDuplicateEmail(ObjectResponse<Long> longObjectResponse) {
+        if (longObjectResponse == null) {
+            return;
+        }
+        switch (longObjectResponse.getStatus()) {
+            case Define.ResponseStatus.LOADING:
+                // TODO: loading
+                break;
+            case Define.ResponseStatus.SUCCESS:
+                viewModel.getIsDuplicateEmail().removeObservers(this);
+                viewModel.setIsDuplicateEmail(null);
+                if (longObjectResponse.getData() == 0) {
+                    viewModel.insertCustomer(customer);
+                } else {
+                    PsyLoading.getInstance(getContext()).hidden();
+                    Snackbar.make(getView(), "Email này đã đăng ký trước đó!", Snackbar.LENGTH_SHORT).show();
+                }
+                break;
+            case Define.ResponseStatus.ERROR:
+                viewModel.getIsDuplicateEmail().removeObservers(this);
+                viewModel.setIsDuplicateEmail(null);
+                PsyLoading.getInstance(getContext()).hidden();
+                Toast.makeText(getContext(), "Rất tiếc đăng ký đã xảyy ra lỗi!", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 
     private void observeRegisterSuccess(ObjectResponse<DataSuccess> registerSuccessObjectResponse) {
@@ -171,7 +208,15 @@ public class SignUpFragment extends BaseFragment<SignUpViewModel, FragmentSignUp
                     return;
                 }
                 PsyLoading.getInstance(getContext()).show();
-                viewModel.regiterServer(fullname, email, pass);
+                if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+                    viewModel.regiterServer(fullname, email, pass);
+                } else {
+                    byte[] encodePass = Base64.encode(pass.getBytes(), Base64.DEFAULT);
+                    customer = new Customer(fullname, email, new String(encodePass));
+                    this.email = email;
+                    this.pass = new String(encodePass);
+                    viewModel.duplicateEmail(customer);
+                }
                 break;
         }
     }

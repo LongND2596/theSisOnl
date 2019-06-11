@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
 import longnd.thesis.data.base.ObjectResponse;
 import longnd.thesis.data.model.Customer;
 import longnd.thesis.data.repository.CustomerRepository;
@@ -36,6 +37,7 @@ public class SignUpViewModel extends ViewModel {
         compositeDisposable = new CompositeDisposable();
         this.repository = repository;
         isInsertCustomer = new MutableLiveData<>();
+        isDuplicateEmail = new MutableLiveData<>();
         customerByEmail = new MutableLiveData<>();
 
         isRegisterFail = new MutableLiveData<>();
@@ -135,4 +137,33 @@ public class SignUpViewModel extends ViewModel {
     public void setCustomerByEmail(ObjectResponse<Customer> value) {
         customerByEmail.setValue(value);
     }
+
+    // region -> offline
+
+    private MutableLiveData<ObjectResponse<Long>> isDuplicateEmail;
+
+    /**
+     * Check for duplicate emails
+     *
+     * @param customer
+     */
+    public void duplicateEmail(Customer customer) {
+        compositeDisposable.add(
+                repository.duplicateEmailCustomer(customer)
+                        .doOnSubscribe(dispose -> isDuplicateEmail.setValue(new ObjectResponse<Long>().loading()))
+                        .subscribe(response -> isDuplicateEmail.setValue(new ObjectResponse<Long>().success(response))
+                                , throwable -> isDuplicateEmail.setValue(new ObjectResponse<Long>().error(throwable)))
+        );
+    }
+
+    public MutableLiveData<ObjectResponse<Long>> getIsDuplicateEmail() {
+        return isDuplicateEmail;
+    }
+
+    public void setIsDuplicateEmail(ObjectResponse<Long> value) {
+        isDuplicateEmail.setValue(value);
+    }
+
+    // endregion
+
 }

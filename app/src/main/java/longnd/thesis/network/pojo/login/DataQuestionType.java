@@ -29,7 +29,7 @@ public class DataQuestionType {
         return psychology;
     }
 
-    public class BaseTypeQuestion {
+    public static class BaseTypeQuestion {
         @SerializedName("title")
         @Expose
         private String title;
@@ -48,6 +48,11 @@ public class DataQuestionType {
 
         public String getDescription() {
             return description;
+        }
+
+        public BaseTypeQuestion(String title, String description) {
+            this.title = title;
+            this.description = description;
         }
 
         public String getImage() {

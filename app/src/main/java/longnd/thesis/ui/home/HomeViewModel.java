@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
 import longnd.thesis.data.base.ObjectResponse;
 import longnd.thesis.network.APIService;
 import longnd.thesis.network.ApiClient;
@@ -18,6 +19,7 @@ public class HomeViewModel extends ViewModel {
     private CompositeDisposable compositeDisposable;
     private APIService mAPIService;
     private MutableLiveData<ObjectResponse<DataQuestionType>> questionsType;
+    private MutableLiveData<ObjectResponse<DataQuestionType>> questionsTypeOff;
 
     @Inject
     HomeViewModel() {
@@ -25,6 +27,7 @@ public class HomeViewModel extends ViewModel {
         mAPIService = ApiClient.getAPIService();
 
         questionsType = new MutableLiveData<>();
+        questionsTypeOff = new MutableLiveData<>();
     }
 
     public void getListQuestionType() {
@@ -34,6 +37,10 @@ public class HomeViewModel extends ViewModel {
                 .subscribe(this::handleResponse, this::handleError);
 
         compositeDisposable.add(disposable);
+    }
+
+    public void getListQuestionTypeOffline() {
+        // TODO : getListQuestionTypeOffline
     }
 
     private void handleError(Throwable throwable) {
@@ -50,5 +57,13 @@ public class HomeViewModel extends ViewModel {
 
     public void setObserveQuestionsType(ObjectResponse<DataQuestionType> value) {
         questionsType.setValue(value);
+    }
+
+    public MutableLiveData<ObjectResponse<DataQuestionType>> getObserveQuestionsTypeOff() {
+        return questionsTypeOff;
+    }
+
+    public void setObserveQuestionsTypeOff(ObjectResponse<DataQuestionType> value) {
+        questionsTypeOff.setValue(value);
     }
 }

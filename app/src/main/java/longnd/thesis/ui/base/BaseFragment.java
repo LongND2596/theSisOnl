@@ -92,4 +92,8 @@ public abstract class BaseFragment<T extends ViewModel, V extends ViewDataBindin
         editText.requestFocus();
     }
 
+    protected long getCurrentTimeMillis() {
+        return System.currentTimeMillis();
+    }
+
 }

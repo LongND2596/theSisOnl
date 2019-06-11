@@ -60,6 +60,7 @@ public class Define {
         public static final String KEY_TOKEN = "ass_token";
         public static final String KEY_SELECT_SYNC = "sync";
         public static final String VALUE_DEFAULT_SELECT_SYNC = "none";
+        public static final String KEY_TIME_LOCK_LOGIN = "lock_login";
     }
 
     public class Result {

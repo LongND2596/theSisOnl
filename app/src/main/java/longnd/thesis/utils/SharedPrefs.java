@@ -25,6 +25,14 @@ public class SharedPrefs {
         return instance;
     }
 
+    public void putLong(String key, long value) {
+        preferences.edit().putLong(key, value).apply();
+    }
+
+    public Long getLong(String key, long defaultValue) {
+        return preferences.getLong(key, defaultValue);
+    }
+
     public void putString(String key, String value) {
         preferences.edit().putString(key, value).commit();
     }

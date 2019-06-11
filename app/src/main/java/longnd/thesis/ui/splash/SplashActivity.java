@@ -2,8 +2,10 @@ package longnd.thesis.ui.splash;
 
 import android.content.Intent;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.github.ybq.android.spinkit.style.CubeGrid;
 import com.google.android.material.snackbar.Snackbar;
@@ -12,7 +14,11 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProviders;
 
 import longnd.thesis.R;
+import longnd.thesis.data.base.ListResponse;
 import longnd.thesis.data.base.ObjectResponse;
+import longnd.thesis.data.entity.User;
+import longnd.thesis.data.model.Customer;
+import longnd.thesis.data.model.Question;
 import longnd.thesis.databinding.ActivitySplashBinding;
 import longnd.thesis.ui.base.BaseActivity;
 import longnd.thesis.ui.customer.CustomerViewModel;
@@ -25,6 +31,7 @@ import longnd.thesis.utils.Helpers;
 import longnd.thesis.utils.NetworkUtils;
 import longnd.thesis.utils.SharedPrefs;
 import longnd.thesis.utils.ToastUtils;
+import longnd.thesis.utils.Utils;
 
 public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplashBinding> {
     private CustomerViewModel customerViewModel;
@@ -39,10 +46,10 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
         }
     }
 
+    /**
+     *
+     */
     private void doRequestConfiguration() {
-        CubeGrid stylePro = new CubeGrid();
-        binding.progressBar.setIndeterminateDrawable(stylePro);
-        binding.progressBar.setVisibility(View.VISIBLE);
         String token = SharedPrefs.getInstance().getString(Define.SharedPref.KEY_TOKEN, Define.SharedPref.VALUE_DEFAULT);
         if (token.equals(Define.SharedPref.VALUE_DEFAULT)) {
             openWorkingScreen();
@@ -52,6 +59,9 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
         }
     }
 
+    /**
+     *
+     */
     private void showRetryConnectionDialog() {
         handler.postDelayed(() -> {
             boolean dialogShown = mRetryDialog != null && mRetryDialog.getDialog() != null
@@ -82,6 +92,9 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
         }, 1000);
     }
 
+    /**
+     *
+     */
     private void onRetryConnectionOk() {
         if (NetworkUtils.hasConnection(SplashActivity.this)) {
             doRequestConfiguration();
@@ -94,6 +107,10 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
     protected void initData() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(SplashViewModel.class);
         customerViewModel = ViewModelProviders.of(this, viewModelFactory).get(CustomerViewModel.class);
+
+        CubeGrid stylePro = new CubeGrid();
+        binding.progressBar.setIndeterminateDrawable(stylePro);
+        binding.progressBar.setVisibility(View.VISIBLE);
 
         /**
          * Select the app
@@ -127,7 +144,15 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
     }
 
     private void initObserve() {
+        // offline
+        customerViewModel.getObserveCustomerByEmail().observe(this, this::observeCustomer);
+
+        // online
         viewModel.getIsGetDataProfileSuccess().observe(this, this::observeGetProfile);
+
+        viewModel.getIsInsertListQuestionSuccess().observe(this, this::observeSaveQuestion);
+        viewModel.getListQuestions().observe(this, this::observeListQuestion);
+
     }
 
     private void observeGetProfile(ObjectResponse<Boolean> booleanObjectResponse) {
@@ -175,6 +200,8 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
                     SharedPrefs.getInstance().putString(Define.SharedPref.KEY_SELECT_SYNC, versionApp);
                 }
                 binding.selectTheApp.setVisibility(View.GONE);
+
+                DataUtils.getInstance().versionApp = versionApp;
                 openVersionApp();
                 break;
         }
@@ -195,7 +222,45 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
      * Open application offline
      */
     private void openOffline() {
+        User user = Utils.getUser();
+        if (!user.isEmpty()) {
+            customerViewModel.getCustomerByEmail(user.getEmail(), user.getPass());
+        } else {
+            loadQuestion();
+        }
+    }
 
+    private void loadQuestion() {
+        if (!SharedPrefs.getInstance().getBoolean(Define.SharedPref.KEY_SAVE_QUESTION, false)) {
+            createQuestionDB();
+        } else {
+            loadingDataQuestion();
+        }
+    }
+
+    /**
+     * Read data and save data in database
+     */
+    private void createQuestionDB() {
+        DataUtils.getInstance().setNeos(viewModel.readDataNeo(this, Define.Question.TYPE_NEO));
+        DataUtils.getInstance().setRiasec(viewModel.readDataRiasec(this, Define.Question.TYPE_RIASEC));
+        DataUtils.getInstance().setPsychological(viewModel.readDataPsy(this, Define.Question.TYPE_PSY_POCHOLIGICAL));
+
+        viewModel.saveDataInDB();
+    }
+
+    /**
+     * Load question data from the database
+     */
+    private void loadingDataQuestion() {
+        // kiểm tra nếu có mạng thì kiểm tra version câu hỏi
+
+
+        // nếu có thì tiến hành cập nhật lại bộ câu hỏi
+
+
+        // ngược lại nếu không thì tiến hành load data như thường
+        viewModel.loadQuestionDataInDB();
     }
 
     /**
@@ -222,5 +287,79 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
             finish();
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }, 2000);
+    }
+
+    /**
+     * Observe get list question
+     *
+     * @param questionListResponse
+     */
+    private void observeListQuestion(ListResponse<Question> questionListResponse) {
+        if (questionListResponse == null) {
+            return;
+        }
+        switch (questionListResponse.getStatus()) {
+            case Define.ResponseStatus.LOADING:
+                break;
+            case Define.ResponseStatus.SUCCESS:
+                viewModel.getListQuestions().removeObservers(this);
+                viewModel.setListQuestions(null);
+                viewModel.classifyTypeQuestion(questionListResponse.getData());
+                openWorkingScreen();
+                break;
+            case Define.ResponseStatus.ERROR:
+                break;
+        }
+    }
+
+    /**
+     * Observe Save Question
+     *
+     * @param booleanObjectResponse
+     */
+    private void observeSaveQuestion(ObjectResponse<Boolean> booleanObjectResponse) {
+        if (booleanObjectResponse == null) {
+            return;
+        }
+        switch (booleanObjectResponse.getStatus()) {
+            case Define.ResponseStatus.LOADING:
+                Log.d("LongNDs", "observeSaveQuestion: loading");
+                break;
+            case Define.ResponseStatus.SUCCESS:
+                viewModel.setIsInsertListQuestionSuccess(null);
+                viewModel.getIsInsertListQuestionSuccess().removeObservers(this);
+                SharedPrefs.getInstance().putBoolean(Define.SharedPref.KEY_SAVE_QUESTION, true);
+                openWorkingScreen();
+                break;
+            case Define.ResponseStatus.ERROR:
+                Log.d("LongNDs", "observeSaveQuestion: error");
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void observeCustomer(ObjectResponse<Customer> customerObjectResponse) {
+        if (customerObjectResponse == null) {
+            return;
+        }
+        customerViewModel.getObserveCustomerByEmail().setValue(null);
+        switch (customerObjectResponse.getStatus()) {
+            case Define.ResponseStatus.LOADING:
+                break;
+            case Define.ResponseStatus.SUCCESS:
+                Customer customer = customerObjectResponse.getData();
+                if (customer != null) {
+                    ToastUtils.showToastSuccess(this, "Chào mừng " + customer.getLastName());
+                    DataUtils.getInstance().setCustomer(customer);
+                }
+                loadQuestion();
+                break;
+            case Define.ResponseStatus.ERROR:
+                Toast.makeText(this, "Rất tiếc, việc lấy dữ liệu đã xảy ra lỗi!", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 }

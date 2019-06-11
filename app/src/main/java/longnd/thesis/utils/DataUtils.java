@@ -29,7 +29,7 @@ public class DataUtils {
     public RiasecResultResponse.DataRiasec resultRiasec;
     public List<PsyResultResponse.ResultPsy> resultPsycho;
 
-    public Map<Integer,String> typeListPsy = new HashMap<>();
+    public Map<Integer, String> typeListPsy = new HashMap<>();
 
     public String historyId;
 
@@ -127,4 +127,6 @@ public class DataUtils {
     public List<Integer> scoreHanhViThachThucChongDoi;
     public List<Integer> scoreRoiLoanHanhViUngXu;
     public List<Integer> scoreGayHan;
+
+    public String versionApp;
 }

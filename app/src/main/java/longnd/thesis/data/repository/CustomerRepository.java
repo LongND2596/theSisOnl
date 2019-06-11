@@ -34,6 +34,12 @@ public class CustomerRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Single<Long> duplicateEmailCustomer(Customer customer){
+        return abstractAppDatabase.customerDao().existsEmailCustomer(customer.getEmail())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Single<Long> insertCustomerReturnId(Customer customer){
         return abstractAppDatabase.customerDao().insertCustomerReturnId(customer)
                 .subscribeOn(Schedulers.io())
@@ -51,6 +57,4 @@ public class CustomerRepository {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
-
-
 }

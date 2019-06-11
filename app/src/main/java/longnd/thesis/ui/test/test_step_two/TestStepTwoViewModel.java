@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
 import longnd.thesis.data.base.ObjectResponse;
 import longnd.thesis.network.APIService;
 import longnd.thesis.network.ApiClient;
@@ -32,6 +33,21 @@ public class TestStepTwoViewModel extends ViewModel {
     public Map<String, String> dapAnNguoiDung;
     private APIService mAPIService;
 
+    public int[] resultsLoAu = new int[20];
+    public int[] resultsTramCam = new int[20];
+    public int[] resultsStress = new int[20];
+    public int[] resultsKhoTapTrung = new int[20];
+    public int[] resultsTangDong = new int[20];
+    public int[] resultsKKGiaoTiepXaHoi = new int[20];
+    public int[] resultsKKHocTap = new int[20];
+    public int[] resultsKKDinhHuongNgheNghiep = new int[20];
+    public int[] resultsKKQuanHeChaMe = new int[20];
+    public int[] resultsKKQuanHeThayCo = new int[20];
+    public int[] resultsKKQuanHeBanBe = new int[20];
+    public int[] resultsHanhViChongDoi = new int[20];
+    public int[] resultsRoiLoanHanhVi = new int[20];
+    public int[] resultsGayHan = new int[20];
+
     @Inject
     TestStepTwoViewModel() {
         compositeDisposable = new CompositeDisposable();
@@ -51,9 +67,15 @@ public class TestStepTwoViewModel extends ViewModel {
         }
     }
 
+    // online
     public void setDataResults(int position, int questionId, int result, double score) {
         dapAnNguoiDung.put(String.valueOf(questionId), String.valueOf(score));
         Log.d("TAGs", "Size : " + dapAnNguoiDung.size());
+        results[position] = result;
+    }
+
+    // offline
+    public void setDataResults(int position, int result) {
         results[position] = result;
     }
 

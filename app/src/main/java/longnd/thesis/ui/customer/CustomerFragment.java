@@ -26,14 +26,17 @@ import java.io.FileOutputStream;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+
 import longnd.thesis.R;
 import longnd.thesis.data.base.ObjectResponse;
+import longnd.thesis.data.model.Customer;
 import longnd.thesis.databinding.FragmentCustomerBinding;
 import longnd.thesis.di.OnOpenCustomer;
 import longnd.thesis.network.pojo.login.ProfileResponse;
 import longnd.thesis.network.pojo.login.UserResponse;
 import longnd.thesis.ui.base.BaseFragment;
 import longnd.thesis.ui.dialog.DialogEditCustomer;
+import longnd.thesis.ui.dialog.DialogEditCustomerOff;
 import longnd.thesis.ui.dialog.DialogSelectImageSource;
 import longnd.thesis.utils.DataUtils;
 import longnd.thesis.utils.Define;
@@ -46,9 +49,12 @@ import longnd.thesis.utils.Utils;
  * Show data customer
  */
 public class CustomerFragment extends BaseFragment<CustomerViewModel, FragmentCustomerBinding>
-        implements DialogSelectImageSource.OnSelectImage, DialogEditCustomer.OnDoneUpdate {
+        implements DialogSelectImageSource.OnSelectImage, DialogEditCustomer.OnDoneUpdate, DialogEditCustomerOff.OnDoneUpdateOff {
+
     private OnOpenCustomer onOpenCustomer;
     private ProfileResponse profileResponse;
+
+    private Customer customer;
 
     @Override
     protected void initListenerOnClick() {
@@ -66,6 +72,56 @@ public class CustomerFragment extends BaseFragment<CustomerViewModel, FragmentCu
     protected void initData() {
         initObserve();
         mainViewModel.setNumberBack(Fields.DONT_BACK);
+        if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+            initDataOnline();
+        } else {
+            initDataOffline();
+        }
+    }
+
+    /**
+     * Show data in Offline
+     */
+    private void initDataOffline() {
+        customer = DataUtils.getInstance().getCustomer();
+        binding.tvNameCustomer.setText(customer.getLastName());
+
+        if (customer.getSchool() != null && !customer.getSchool().isEmpty()) {
+            binding.tvSchool.setText(customer.getSchool());
+        }
+        if (customer.getSpecialized() != null && !customer.getSpecialized().isEmpty()) {
+            binding.tvSpecialized.setText(customer.getSpecialized());
+        }
+        if (customer.getEmail() != null && !customer.getEmail().isEmpty()) {
+            binding.tvEmail.setText(customer.getEmail());
+        }
+        if (customer.getPhone() != null && !customer.getPhone().isEmpty()) {
+            binding.tvPhone.setText(customer.getPhone());
+        }
+        if (customer.getGender() == 0) {
+            binding.tvGender.setText("Nữ");
+        } else if (customer.getGender() == 1) {
+            binding.tvGender.setText("Nam");
+        }
+        if (customer.getBirthdate() != null && !customer.getBirthdate().isEmpty()) {
+            binding.tvBirthDay.setText(customer.getBirthdate());
+        }
+        if (customer.getImage() != null && !customer.getImage().isEmpty()) {
+            String path = Fields.ROOT_FOLDER + File.separator + customer.getImage();
+            if (Utils.existsPathImage(path)) {
+                Glide.with(getContext())
+                        .load(new File(Fields.ROOT_FOLDER + File.separator + customer.getImage()))
+                        .into(binding.ivLogo);
+            } else {
+                Toast.makeText(getContext(), "Đường dẫn hình ảnh có lỗi!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    /**
+     * Show data in Online
+     */
+    private void initDataOnline() {
         UserResponse userResponse = DataUtils.getInstance().getUser();
         if (userResponse == null) {
             return;
@@ -74,9 +130,9 @@ public class CustomerFragment extends BaseFragment<CustomerViewModel, FragmentCu
         if (profileResponse == null) {
             return;
         }
-        if (profileResponse.getFullname() == null){
+        if (profileResponse.getFullname() == null) {
             binding.tvNameCustomer.setText(userResponse.getName());
-        }else {
+        } else {
             binding.tvNameCustomer.setText(profileResponse.getFullname());
         }
         if (profileResponse.getUniversity() != null && !profileResponse.getUniversity().isEmpty()) {
@@ -179,9 +235,15 @@ public class CustomerFragment extends BaseFragment<CustomerViewModel, FragmentCu
                 }
                 break;
             case R.id.btnEdit:
-                DialogEditCustomer editCustomer = new DialogEditCustomer();
-                editCustomer.setOnDoneUpdate(this);
-                editCustomer.show(getFragmentManager(), DialogEditCustomer.class.getName());
+                if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+                    DialogEditCustomer editCustomer = new DialogEditCustomer();
+                    editCustomer.setOnDoneUpdate(this);
+                    editCustomer.show(getFragmentManager(), DialogEditCustomer.class.getName());
+                } else {
+                    DialogEditCustomerOff editCustomerOff = new DialogEditCustomerOff();
+                    editCustomerOff.setOnDoneUpdateOff(this);
+                    editCustomerOff.show(getFragmentManager(), DialogEditCustomer.class.getName());
+                }
                 break;
             default:
                 break;
@@ -237,9 +299,15 @@ public class CustomerFragment extends BaseFragment<CustomerViewModel, FragmentCu
 
 
     private void onExitCustomer() {
-        SharedPrefs.getInstance().putString(Define.SharedPref.KEY_TOKEN, Define.SharedPref.VALUE_DEFAULT);
-        DataUtils.getInstance().setUser(null);
-        DataUtils.getInstance().setProfile(null);
+        if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+            SharedPrefs.getInstance().putString(Define.SharedPref.KEY_TOKEN, Define.SharedPref.VALUE_DEFAULT);
+            DataUtils.getInstance().setUser(null);
+            DataUtils.getInstance().setProfile(null);
+        } else {
+            SharedPrefs.getInstance().putString(Fields.KEY_EMAIL, Fields.DEFAULT_VALUE);
+            SharedPrefs.getInstance().putString(Fields.KEY_PASS, Fields.DEFAULT_VALUE);
+            DataUtils.getInstance().setCustomer(null);
+        }
         onOpenCustomer.openSignInCustomer();
     }
 
@@ -292,8 +360,7 @@ public class CustomerFragment extends BaseFragment<CustomerViewModel, FragmentCu
                 imageBitmap.compress(Bitmap.CompressFormat.PNG, 85, fOut);
                 fOut.flush();
                 fOut.close();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             viewModel.pathImage = filePath;
@@ -312,7 +379,7 @@ public class CustomerFragment extends BaseFragment<CustomerViewModel, FragmentCu
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 showDialogSelect();
             }
-        }else if (requestCode == 103){
+        } else if (requestCode == 103) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 openCamera();
             }

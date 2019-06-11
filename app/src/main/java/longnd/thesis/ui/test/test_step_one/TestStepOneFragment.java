@@ -215,24 +215,38 @@ public class TestStepOneFragment extends BaseFragment<TestStepOneViewModel, Frag
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnStart:
-                // kiểm tra đường truyền
-                if (DataUtils.getInstance().getProfile() == null) {
-                    Snackbar.make(getView(), "Bạn cần đăng nhập để sử dụng làm bài đánh giá!", Snackbar.LENGTH_SHORT).show();
-                    return;
-                }
-                if (!NetworkUtils.hasConnection(getContext())) {
-                    Snackbar.make(getView(), "Lỗi kết nối", Snackbar.LENGTH_SHORT).show();
-                    return;
-                }
-                if (testViewModel.getType() == Define.Question.TYPE_NEO) {
-                    if (DataUtils.getInstance().getProfile().getSex() == null
-                            || DataUtils.getInstance().getProfile().getSex().isEmpty()) {
-                        ToastUtils.showToastNotification(getContext(), "Bạn cần cập nhật giới tính trước!");
+                if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+                    // kiểm tra đường truyền
+                    if (DataUtils.getInstance().getProfile() == null) {
+                        Snackbar.make(getView(), "Bạn cần đăng nhập để sử dụng làm bài đánh giá!", Snackbar.LENGTH_SHORT).show();
                         return;
                     }
+                    if (!NetworkUtils.hasConnection(getContext())) {
+                        Snackbar.make(getView(), "Lỗi kết nối", Snackbar.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (testViewModel.getType() == Define.Question.TYPE_NEO) {
+                        if (DataUtils.getInstance().getProfile().getSex() == null
+                                || DataUtils.getInstance().getProfile().getSex().isEmpty()) {
+                            ToastUtils.showToastNotification(getContext(), "Bạn cần cập nhật giới tính trước!");
+                            return;
+                        }
+                    }
+                    PsyLoading.getInstance(getContext()).show();
+                    viewModel.getListQuestionsByType(testViewModel.getType());
+                } else {
+                    if (DataUtils.getInstance().getCustomer() == null) {
+                        Snackbar.make(getView(), "Bạn cần đăng nhập để sử dụng làm bài đánh giá!", Snackbar.LENGTH_SHORT).show();
+                    }
+                    if (testViewModel.getType() == Define.Question.TYPE_NEO) {
+                        if (DataUtils.getInstance().getCustomer().getGender() == -1) {
+                            ToastUtils.showToastNotification(getContext(), "Bạn cần cập nhật giới tính trước!");
+                            return;
+                        }
+                    }
+                    PsyLoading.getInstance(getContext()).show();
+                    openStepTest.openStepTwo();
                 }
-                PsyLoading.getInstance(getContext()).show();
-                viewModel.getListQuestionsByType(testViewModel.getType());
                 break;
         }
     }

@@ -142,4 +142,19 @@ public class CustomerViewModel extends ViewModel {
         isUploadAvatar.setValue(value);
     }
 
+
+    // region -> Offline
+
+    public void getCustomerByEmail(String email, String pass) {
+        compositeDisposable.add(
+                repository.getCustomerByEmail(email, pass)
+                        .doOnSubscribe(dispose -> {
+                            customerByEmail.setValue(new ObjectResponse<Customer>().loading());
+                        })
+                        .subscribe(response -> customerByEmail.setValue(new ObjectResponse<Customer>().success(response))
+                                , throwable -> customerByEmail.setValue(new ObjectResponse<Customer>().error(throwable)))
+        );
+    }
+
+    // endregion
 }

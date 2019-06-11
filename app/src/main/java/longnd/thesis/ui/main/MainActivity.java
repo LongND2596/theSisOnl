@@ -3,6 +3,7 @@ package longnd.thesis.ui.main;
 import android.view.View;
 
 import androidx.lifecycle.ViewModelProviders;
+
 import longnd.thesis.R;
 import longnd.thesis.databinding.ActivityMainBinding;
 import longnd.thesis.di.OnOpenCustomer;
@@ -13,6 +14,7 @@ import longnd.thesis.ui.customer.signup.SignUpFragment;
 import longnd.thesis.ui.history.HistoryFragment;
 import longnd.thesis.ui.home.HomeFragment;
 import longnd.thesis.utils.DataUtils;
+import longnd.thesis.utils.Define;
 import longnd.thesis.utils.Fields;
 
 public class MainActivity extends BaseActivity<MainViewModel, ActivityMainBinding> implements OnOpenCustomer {
@@ -98,7 +100,7 @@ public class MainActivity extends BaseActivity<MainViewModel, ActivityMainBindin
     }
 
     private void openCustomerFragment() {
-        if (DataUtils.getInstance().getUser() != null) {
+        if (DataUtils.getInstance().getUser() != null || DataUtils.getInstance().getCustomer() != null) {
             addFragment(R.id.mContainer, customerFragment, CustomerFragment.class.getName());
         } else {
             addFragment(R.id.mContainer, signInFragment, SignInFragment.class.getName());
