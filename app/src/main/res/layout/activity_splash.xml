@@ -2,62 +2,216 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@drawable/image_splash"/>
+        android:layout_height="match_parent">
 
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg_splash"/>
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/image_splash"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_splash" />
+
+            <LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/logo3" />
+
+                <ImageView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logo" />
+
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/progressBar"
+                    style="@style/SpinKitView.Large.Circle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:visibility="invisible"
+                    app:SpinKit_Color="@android:color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_text_splash"
+                android:padding="10dp"
+                android:text="danhgiatamly.edu.vn"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/layout"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:id="@+id/ivLogo"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:src="@drawable/logo3"/>
+            android:id="@+id/selectTheApp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000"
+            android:visibility="gone">
 
-            <ImageView
-                android:id="@+id/tvTitle"
-                android:layout_width="150dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutSelect"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logo"/>
-
-            <com.github.ybq.android.spinkit.SpinKitView
-                android:visibility="invisible"
-                android:id="@+id/progressBar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                style="@style/SpinKitView.Large.Circle"
                 android:layout_gravity="center"
-                app:SpinKit_Color="@android:color/white"
-                />
+                android:layout_margin="20dp"
+                android:background="@drawable/bg_select_the_app"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/textSelectTheApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selecting the synchronous"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/seperator"
+                    style="@style/HorizontalSeperator"
+                    android:layout_marginTop="10dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textSelectTheApp" />
+
+                <ImageView
+                    android:id="@+id/imageOnline"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/icon_online"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seperator" />
+
+                <TextView
+                    android:id="@+id/textCheckOnline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Đồng bộ với Server"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/imageOnline"
+                    app:layout_constraintEnd_toStartOf="@id/checkOnline"
+                    app:layout_constraintStart_toEndOf="@id/imageOnline"
+                    app:layout_constraintTop_toTopOf="@id/imageOnline" />
+
+                <ImageView
+                    android:id="@+id/checkOnline"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_select_checkbox"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintBottom_toBottomOf="@id/imageOnline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/imageOnline" />
+
+                <View
+                    android:id="@+id/seperator1"
+                    style="@style/HorizontalSeperator"
+                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageOnline" />
+
+                <ImageView
+                    android:id="@+id/imageOffline"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:src="@drawable/icon_offline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seperator1" />
+
+                <TextView
+                    android:id="@+id/textCheckOffline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Lưu trữ nội bộ"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/imageOffline"
+                    app:layout_constraintEnd_toStartOf="@id/checkOffline"
+                    app:layout_constraintStart_toEndOf="@id/imageOffline"
+                    app:layout_constraintTop_toTopOf="@id/imageOffline" />
+
+                <ImageView
+                    android:id="@+id/checkOffline"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_no_select_checkbox"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintBottom_toBottomOf="@id/imageOffline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/imageOffline" />
+
+                <View
+                    android:id="@+id/seperator2"
+                    style="@style/HorizontalSeperator"
+                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageOffline" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxSaveSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Nhớ lựa chọn của tôi"
+                    android:gravity="center"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seperator2" />
+
+                <ImageView
+                    android:id="@+id/buttonSelected"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_image_next_app"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_next_app"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutSelect"
+                    app:layout_constraintEnd_toEndOf="@id/layoutSelect" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="danhgiatamly.edu.vn"
-            android:background="@drawable/bg_text_splash"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:padding="10dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"/>
-    </RelativeLayout>
+    </FrameLayout>
+
 </layout>

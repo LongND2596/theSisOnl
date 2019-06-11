@@ -6,6 +6,8 @@ public class Define {
     public static final long CLICK_TIME_INTERVAL = 300L;
     public static final String TYPE_QUESTION = "type_question";
     public static final int DEFAULT_VALUE = -1;
+    public static final String VERSION_ONL = "TheSISOnline";
+    public static final String VERSION_OFF = "TheSISOffline";
 
     public class ResponseStatus {
         public static final int LOADING = 1;
@@ -56,6 +58,9 @@ public class Define {
         public static final String KEY_SAVE_QUESTION = "save_question";
         public static final String KEY_NEXT_TAP = "next_tap";
         public static final String KEY_TOKEN = "ass_token";
+        public static final String KEY_SELECT_SYNC = "sync";
+        public static final String VALUE_DEFAULT_SELECT_SYNC = "none";
+        public static final String KEY_TIME_LOCK_LOGIN = "lock_login";
     }
 
     public class Result {
@@ -86,5 +91,24 @@ public class Define {
         public static final String REALITY = "reality"; // thực tế
         public static final String ART = "art"; // nghệ thuật
         public static final String CONVINCE = "convince"; // thuyết phục
+    }
+
+    public class ResultPsycho {
+        public static final String TABLE_NAME = "result_psycho";
+        public static final String ID = "id";
+        public static final String loAu = "lo_au";
+        public static final String tramCam = "tram_cam";
+        public static final String stress = "stress";
+        public static final String khoTapTrung = "kho_tap_trung";
+        public static final String tangDong = "tang_dong";
+        public static final String kkGiaoTiepXaHoi = "kk_giao_tiep_xa_hoi";
+        public static final String kkHocTap = "kk_hoc_tap";
+        public static final String kkDinhHuongNgheNghiep = "kk_dinh_huong_nghe_nghiep";
+        public static final String kkQuanHeChaMe = "kk_quan_he_cha_me";
+        public static final String kkQuanHeThayCo = "kk_quan_he_thay_co";
+        public static final String kkQuanHeBanBe = "kk_quan_he_ban_be";
+        public static final String hanhViChongDoi = "hanh_vi_chong_doi";
+        public static final String roiLoanHanhVi = "roi_loan_hanh_vi";
+        public static final String gayHan = "gay_han";
     }
 }

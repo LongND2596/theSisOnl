@@ -6,6 +6,16 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
 import longnd.thesis.di.ViewModelFactory;
+import longnd.thesis.offline.customer.CustomerOffViewModel;
+import longnd.thesis.offline.customer.edit.EditCustomerOffViewModel;
+import longnd.thesis.offline.customer.signin.SignInOffViewModel;
+import longnd.thesis.offline.customer.signup.SignUpOffViewModel;
+import longnd.thesis.offline.history.HistoryOffViewModel;
+import longnd.thesis.offline.home.HomeOffViewModel;
+import longnd.thesis.offline.main.MainOffViewModel;
+import longnd.thesis.offline.test.TestOffViewModel;
+import longnd.thesis.offline.test.test_step_one.TestStepOneOffViewModel;
+import longnd.thesis.offline.test.test_step_two.TestStepTwoOffViewModel;
 import longnd.thesis.ui.customer.CustomerViewModel;
 import longnd.thesis.ui.customer.signin.SignInViewModel;
 import longnd.thesis.ui.customer.signup.SignUpViewModel;
@@ -114,4 +124,58 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(HistoryViewModel.class)
     abstract ViewModel bindHistoryViewModel(HistoryViewModel viewModel);
+
+    // region -> Offline
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainOffViewModel.class)
+    abstract ViewModel bindMainOffViewModel(MainOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CustomerOffViewModel.class)
+    abstract ViewModel bindCustomerOffViewModel(CustomerOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeOffViewModel.class)
+    abstract ViewModel bindHomeOffViewModel(HomeOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignInOffViewModel.class)
+    abstract ViewModel bindSignInOffViewModel(SignInOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignUpOffViewModel.class)
+    abstract ViewModel bindSignUpOffViewModel(SignUpOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HistoryOffViewModel.class)
+    abstract ViewModel bindHistoryOffViewModel(HistoryOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TestOffViewModel.class)
+    abstract ViewModel bindTestOffViewModel(TestOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TestStepOneOffViewModel.class)
+    abstract ViewModel bindTestStepOneOffViewModel(TestStepOneOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TestStepTwoOffViewModel.class)
+    abstract ViewModel bindTestStepTwoOffViewModel(TestStepTwoOffViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(EditCustomerOffViewModel.class)
+    abstract ViewModel bindEditCustomerOffViewModel(EditCustomerOffViewModel viewModel);
+
+    // region
 }

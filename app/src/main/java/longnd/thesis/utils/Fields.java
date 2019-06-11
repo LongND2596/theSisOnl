@@ -18,6 +18,9 @@ public class Fields {
     public static final int TAKE_IMAGE = 101;
     public static final String KEY_TYPE = "type";
 
+    public static final int MAX_LOGIN_ERROR = 5;
+    public static final long TIME_LOCK_LOGIN = 5 * 60 * 1000;
+
     public static final String FORMAT_IMAGE = ".jpg";
     public static final String ROOT_FOLDER = Environment
             .getExternalStorageDirectory() + File.separator + "psychological";

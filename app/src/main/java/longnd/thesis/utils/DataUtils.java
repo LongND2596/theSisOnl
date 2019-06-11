@@ -6,6 +6,7 @@ import java.util.Map;
 
 import longnd.thesis.data.model.Customer;
 import longnd.thesis.data.model.Question;
+import longnd.thesis.data.model.ResultPsychological;
 import longnd.thesis.network.pojo.login.DataQuestionType;
 import longnd.thesis.network.pojo.login.ProfileResponse;
 import longnd.thesis.network.pojo.login.Universitie;
@@ -32,6 +33,8 @@ public class DataUtils {
     public Map<Integer,String> typeListPsy = new HashMap<>();
 
     public String historyId;
+
+    public ResultPsychological resultPsychological;
 
     public static DataUtils getInstance() {
         if (instance == null) {
@@ -127,4 +130,6 @@ public class DataUtils {
     public List<Integer> scoreHanhViThachThucChongDoi;
     public List<Integer> scoreRoiLoanHanhViUngXu;
     public List<Integer> scoreGayHan;
+
+    public String versionApp;
 }

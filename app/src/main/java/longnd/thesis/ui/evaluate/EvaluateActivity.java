@@ -6,8 +6,12 @@ import android.view.View;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
+
 import longnd.thesis.R;
 import longnd.thesis.adapter.EvaluatePagerAdapter;
+import longnd.thesis.data.model.ResultNeo;
+import longnd.thesis.data.model.ResultPsychological;
+import longnd.thesis.data.model.ResultRiasec;
 import longnd.thesis.databinding.ActivityEvaluateBinding;
 import longnd.thesis.network.result.RiasecResultResponse;
 import longnd.thesis.ui.base.BaseActivity;
@@ -19,6 +23,10 @@ import longnd.thesis.utils.PsyLoading;
 public class EvaluateActivity extends BaseActivity<EvaluateViewModel, ActivityEvaluateBinding> {
     private Intent intent;
     private int[] results;
+
+    private ResultNeo resultNeo;
+    private ResultRiasec resultRiasec;
+    private static final String KEY_BUNDLE = "EVALUATE";
 
     @Override
     protected void initView() {
@@ -45,30 +53,54 @@ public class EvaluateActivity extends BaseActivity<EvaluateViewModel, ActivityEv
         switch (type) {
             case Define.Question.TYPE_NEO:
                 results = new int[5];
-                // type : 0 - A, 1 - C, 2 - O, 3 - N, 4 - E
-                results[0] = DataUtils.getInstance().resultNeo.get(0).getScore();
-                results[1] = DataUtils.getInstance().resultNeo.get(1).getScore();
-                results[2] = DataUtils.getInstance().resultNeo.get(2).getScore();
-                results[3] = DataUtils.getInstance().resultNeo.get(3).getScore();
-                results[4] = DataUtils.getInstance().resultNeo.get(4).getScore();
+                if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+                    // type : 0 - A, 1 - C, 2 - O, 3 - N, 4 - E
+                    results[0] = DataUtils.getInstance().resultNeo.get(0).getScore();
+                    results[1] = DataUtils.getInstance().resultNeo.get(1).getScore();
+                    results[2] = DataUtils.getInstance().resultNeo.get(2).getScore();
+                    results[3] = DataUtils.getInstance().resultNeo.get(3).getScore();
+                    results[4] = DataUtils.getInstance().resultNeo.get(4).getScore();
+                } else {
+                    resultNeo = (ResultNeo) intent.getBundleExtra(KEY_BUNDLE).getSerializable(Fields.KEY_VALUE);
+                    // type : 0 - A, 1 - C, 2 - O, 3 - N, 4 - E
+                    results[0] = resultNeo.getAgreeableness();
+                    results[1] = resultNeo.getConscientiousness();
+                    results[2] = resultNeo.getOpenness();
+                    results[3] = resultNeo.getNeuroticism();
+                    results[4] = resultNeo.getExtraversion();
+                }
                 break;
             case Define.Question.TYPE_RIASEC:
                 results = new int[6];
-                RiasecResultResponse.RiasecResult riasecResult;
-                // type: 0 - rule, 1- society, 2 - discover, 3 - reality, 4 - art, 5 - convince
-                if (DataUtils.getInstance().resultRiasec.results != null) {
-                    riasecResult = DataUtils.getInstance().resultRiasec.results;
+                if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+                    RiasecResultResponse.RiasecResult riasecResult;
+                    // type: 0 - rule, 1- society, 2 - discover, 3 - reality, 4 - art, 5 - convince
+                    if (DataUtils.getInstance().resultRiasec.results != null) {
+                        riasecResult = DataUtils.getInstance().resultRiasec.results;
+                    } else {
+                        riasecResult = DataUtils.getInstance().resultRiasec.result;
+                    }
+                    results[0] = riasecResult.quyTac;
+                    results[1] = riasecResult.xaHoi;
+                    results[2] = riasecResult.khamPha;
+                    results[3] = riasecResult.thucTe;
+                    results[4] = riasecResult.ngheThuat;
+                    results[5] = riasecResult.thuyetPhuc;
                 } else {
-                    riasecResult = DataUtils.getInstance().resultRiasec.result;
+                    resultRiasec = (ResultRiasec) intent.getBundleExtra(KEY_BUNDLE).getSerializable(Fields.KEY_VALUE);
+                    // type: 0 - rule, 1- society, 2 - discover, 3 - reality, 4 - art, 5 - convince
+                    results[0] = resultRiasec.getRule();
+                    results[1] = resultRiasec.getSociety();
+                    results[2] = resultRiasec.getDiscover();
+                    results[3] = resultRiasec.getReality();
+                    results[4] = resultRiasec.getArt();
+                    results[5] = resultRiasec.getConvince();
                 }
-                results[0] = riasecResult.quyTac;
-                results[1] = riasecResult.xaHoi;
-                results[2] = riasecResult.khamPha;
-                results[3] = riasecResult.thucTe;
-                results[4] = riasecResult.ngheThuat;
-                results[5] = riasecResult.thuyetPhuc;
                 break;
             case Define.Question.TYPE_PSY_POCHOLIGICAL:
+                if (DataUtils.getInstance().versionApp.equals(Define.VERSION_OFF)) {
+                    DataUtils.getInstance().resultPsychological = (ResultPsychological) intent.getBundleExtra(KEY_BUNDLE).getSerializable(Fields.KEY_VALUE);
+                }
                 break;
         }
     }

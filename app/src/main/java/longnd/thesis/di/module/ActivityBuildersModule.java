@@ -2,6 +2,16 @@ package longnd.thesis.di.module;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
+import longnd.thesis.offline.customer.CustomerOffFragment;
+import longnd.thesis.offline.customer.edit.DialogEditCustomerOff;
+import longnd.thesis.offline.customer.signin.SignInOffFragment;
+import longnd.thesis.offline.customer.signup.SignUpOffFragment;
+import longnd.thesis.offline.history.HistoryOffFragment;
+import longnd.thesis.offline.home.HomeOffFragment;
+import longnd.thesis.offline.main.MainOffActivity;
+import longnd.thesis.offline.test.TestOffActivity;
+import longnd.thesis.offline.test.test_step_one.TestStepOneOffFragment;
+import longnd.thesis.offline.test.test_step_two.TestStepTwoOffFragment;
 import longnd.thesis.ui.customer.CustomerFragment;
 import longnd.thesis.ui.customer.signin.SignInFragment;
 import longnd.thesis.ui.customer.signup.SignUpFragment;
@@ -72,4 +82,38 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract HistoryFragment bindHistoryFragment();
+
+    // region -> Offline
+
+    @ContributesAndroidInjector
+    abstract MainOffActivity bindMainOffActivity();
+
+    @ContributesAndroidInjector
+    abstract CustomerOffFragment bindCustomerOffFragment();
+
+    @ContributesAndroidInjector
+    abstract HomeOffFragment bindHomeOffFragment();
+
+    @ContributesAndroidInjector
+    abstract SignInOffFragment bindSignInOffFragment();
+
+    @ContributesAndroidInjector
+    abstract SignUpOffFragment bindSignUpOffFragment();
+
+    @ContributesAndroidInjector
+    abstract HistoryOffFragment bindHistoryOffFragment();
+
+    @ContributesAndroidInjector
+    abstract TestOffActivity bindTestOffFragment();
+
+    @ContributesAndroidInjector
+    abstract TestStepOneOffFragment bindTestStepOneOffFragment();
+
+    @ContributesAndroidInjector
+    abstract TestStepTwoOffFragment bindTestStepTwoOffFragment();
+
+    @ContributesAndroidInjector
+    abstract DialogEditCustomerOff bindEditCustomerOffDialog();
+
+    // endregion
 }

@@ -47,10 +47,28 @@
         <item>Trường Đại học Giáo dục - ĐHQGHN</item>
     </string-array>
 
-    <string-array name="specialized_array">
-        <item>Chọn chuyên ngành</item>
+    <string-array name="specialized_array_0">
+        <item>Chọn chuyên ngành</item>
+    </string-array>
+
+    <string-array name="specialized_array_1">
         <item>Công nghệ thông tin</item>
         <item>Hệ thống thông tin</item>
+    </string-array>
+
+    <string-array name="specialized_array_2">
+        <item>Khoa Sư Phạm</item>
+        <item>Cử nhân quản trị trường học</item>
+        <item>Cử nhân Quản trị công nghệ giáo dục</item>
+        <item>ThS QUản lý giáo dục</item>
+        <item>ThS Lý luận và PP Dạy học</item>
+        <item>ThS Tâm lý học lâm sàng trẻ em và VTN</item>
+        <item>ThS Đo lường đánh giá trong giáo dục</item>
+        <item>ThS Tham vấn học đường</item>
+        <item>ThS QUản trị trường học</item>
+        <item>TS Quản lý giáo dục</item>
+        <item>TS Tâm lý học lâm sàng</item>
+        <item>TS Đo lường đánh giá trong giáo dục"</item>
     </string-array>
 
     <string-array name="gender_array">
@@ -115,4 +133,89 @@
     <string name="can_not_connect_to_server">Kết nối tới máy chủ không thành công</string>
     <string name="retry">Thử kết nối lại</string>
     <string name="send_token">Bearer %s</string>
+
+    <string-array name="answer_neo">
+        <item>Hoàn toàn sai</item>
+        <item>Sai</item>
+        <item>Không đúng cũng không sai</item>
+        <item>Đúng</item>
+        <item>Hoàn toàn đúng</item>
+    </string-array>
+
+    <string-array name="answer_riasec">
+        <item>Hoàn toàn không đúng</item>
+        <item>Không đúng</item>
+        <item>Đúng một phần</item>
+        <item>Đúng</item>
+        <item>Hoàn toàn đúng</item>
+    </string-array>
+
+    <string-array name="kind_psycho">
+        <item>Lo âu</item>
+        <item>Trầm cảm</item>
+        <item>Stress</item>
+        <item>Khó tập trung</item>
+        <item>Tăng động</item>
+        <item>Khó khăn về giao tiếp xã hội</item>
+        <item>Khó khăn học tập</item>
+        <item>Khó khăn trong định hướng nghề nghiệp \n(thang điểm 1-10)</item>
+        <item>Khó khăn trong mối quan hệ với cha mẹ</item>
+        <item>Khó khăn trong mối quan hệ với thầy cô</item>
+        <item>Khó khăn trong mối quan hệ với bạn bè</item>
+        <item>Hành vi thách thức - chống đối</item>
+        <item>Rối loạn hành vi ứng xử</item>
+        <item>Gây hấn</item>
+    </string-array>
+
+    <string-array name="kind_title_psycho">
+        <item><b>Lo âu</b></item>
+        <item>Trầm cảm</item>
+        <item>Stress</item>
+        <item>Khó tập trung</item>
+        <item>Tăng động</item>
+        <item>Khó khăn về giao tiếp xã hội</item>
+        <item>Khó khăn học tập</item>
+        <item>Khó khăn trong định hướng nghề nghiệp</item>
+        <item>Khó khăn trong mối quan hệ với cha mẹ</item>
+        <item>Khó khăn trong mối quan hệ với thầy cô</item>
+        <item>Khó khăn trong mối quan hệ với bạn bè</item>
+        <item>Hành vi thách thức - chống đối</item>
+        <item>Rối loạn hành vi ứng xử</item>
+        <item>Gây hấn</item>
+    </string-array>
+
+    <string-array name="answer_psycho_kind_weak">
+        <item>Không bao giờ</item>
+        <item>Thi thoảng</item>
+        <item>Thường xuyên</item>
+        <item>Rất thường xuyên</item>
+    </string-array>
+
+    <string-array name="answer_psycho_kind_rather">
+        <item>Không đúng</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>Đúng</item>
+    </string-array>
+
+    <string-array name="answer_psycho_kind_normal">
+        <item>Rất không đúng</item>
+        <item>Gần như không đúng</item>
+        <item>Nửa đúng nửa không</item>
+        <item>Gần như đúng</item>
+        <item>Rất đúng</item>
+    </string-array>
+
+    <string-array name="evaluatePsycho">
+        <item>Không gặp vấn đề</item>
+        <item>Nguy cơ</item>
+        <item>Nên gặp chuyên gia</item>
+    </string-array>
 </resources>

@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import dagger.android.support.AndroidSupportInjection;
 import longnd.thesis.di.ViewModelFactory;
+import longnd.thesis.offline.test.TestOffViewModel;
 import longnd.thesis.ui.evaluate.EvaluateViewModel;
 import longnd.thesis.ui.main.MainViewModel;
 import longnd.thesis.ui.test.TestViewModel;
@@ -33,6 +34,7 @@ public abstract class BaseFragment<T extends ViewModel, V extends ViewDataBindin
 
     protected MainViewModel mainViewModel;
     protected TestViewModel testViewModel;
+    protected TestOffViewModel testOffViewModel;
     protected EvaluateViewModel evaluateViewModel;
 
     private static long lastClickTime = System.currentTimeMillis();
@@ -65,6 +67,7 @@ public abstract class BaseFragment<T extends ViewModel, V extends ViewDataBindin
             viewModel = ViewModelProviders.of(getActivity(), viewModelFactory).get(getModelClass());
             mainViewModel = ViewModelProviders.of(getActivity(), viewModelFactory).get(MainViewModel.class);
             testViewModel = ViewModelProviders.of(getActivity(), viewModelFactory).get(TestViewModel.class);
+            testOffViewModel = ViewModelProviders.of(getActivity(), viewModelFactory).get(TestOffViewModel.class);
             evaluateViewModel = ViewModelProviders.of(getActivity(), viewModelFactory).get(EvaluateViewModel.class);
         }
     }
@@ -90,6 +93,10 @@ public abstract class BaseFragment<T extends ViewModel, V extends ViewDataBindin
         editText.setError(message);
         editText.setFocusableInTouchMode(true);
         editText.requestFocus();
+    }
+
+    protected long getCurrentTimeMillis() {
+        return System.currentTimeMillis();
     }
 
 }

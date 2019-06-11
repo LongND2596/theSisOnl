@@ -28,24 +28,33 @@
         android:background="#8E9294" />
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_item_setting"
         android:padding="10dp">
 
         <TextView
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:text="Chuyển câu khi chọn đáp án" />
+            android:layout_centerVertical="true"
+            android:text="Chuyển câu khi chọn đáp án"
+            android:textColor="@android:color/black" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchNextTap"
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/buttonResetSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Reset select the synchronous"
+        android:textColor="@color/bg_user"
+        android:textStyle="italic" />
 </LinearLayout>

@@ -14,12 +14,13 @@ import longnd.thesis.data.model.Customer;
 import longnd.thesis.data.model.Question;
 import longnd.thesis.data.model.Result;
 import longnd.thesis.data.model.ResultNeo;
+import longnd.thesis.data.model.ResultPsychological;
 import longnd.thesis.data.model.ResultRiasec;
 import longnd.thesis.utils.Define;
 
 @Database(entities = {
         Customer.class, Question.class, ResultNeo.class,
-        Result.class, ResultRiasec.class
+        Result.class, ResultRiasec.class, ResultPsychological.class
 }, version = Define.DATABASE_VERSION, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AbstractAppDatabase extends RoomDatabase {

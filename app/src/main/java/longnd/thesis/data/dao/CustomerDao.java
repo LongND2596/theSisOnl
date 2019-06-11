@@ -20,6 +20,9 @@ public interface CustomerDao {
     @Query("SELECT count(*) FROM " + Define.Customer.TABLE_NAME + " WHERE " + Define.Customer.EMAIL + " = :email" + " AND " + Define.Customer.PASS + " = :pass")
     Single<Long> existsCustomerByEmail(String email, String pass);
 
+    @Query("SELECT count(*) FROM " + Define.Customer.TABLE_NAME + " WHERE " + Define.Customer.EMAIL + " = :email")
+    Single<Long> existsEmailCustomer(String email);
+
     @Query("SELECT * FROM " + Define.Customer.TABLE_NAME + " WHERE " + Define.Customer.EMAIL + " = :email" + " AND " + Define.Customer.PASS + " = :pass")
     Single<Customer> signInCustomer(String email, String pass);
 

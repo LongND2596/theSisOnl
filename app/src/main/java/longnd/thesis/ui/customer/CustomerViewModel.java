@@ -10,6 +10,7 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
 import longnd.thesis.data.base.ObjectResponse;
 import longnd.thesis.data.model.Customer;
 import longnd.thesis.data.repository.CustomerRepository;
@@ -142,4 +143,19 @@ public class CustomerViewModel extends ViewModel {
         isUploadAvatar.setValue(value);
     }
 
+
+    // region -> Offline
+
+    public void getCustomerByEmail(String email, String pass) {
+        compositeDisposable.add(
+                repository.getCustomerByEmail(email, pass)
+                        .doOnSubscribe(dispose -> {
+                            customerByEmail.setValue(new ObjectResponse<Customer>().loading());
+                        })
+                        .subscribe(response -> customerByEmail.setValue(new ObjectResponse<Customer>().success(response))
+                                , throwable -> customerByEmail.setValue(new ObjectResponse<Customer>().error(throwable)))
+        );
+    }
+
+    // endregion
 }

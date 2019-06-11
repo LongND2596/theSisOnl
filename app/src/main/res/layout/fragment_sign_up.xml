@@ -2,9 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <RelativeLayout
-        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
         <TextView
             android:id="@+id/tvTitle1"
@@ -82,10 +82,10 @@
                 android:background="@drawable/bg_edittext_user"
                 android:drawableRight="@drawable/ic_full_name"
                 android:hint="Full name"
-                android:padding="10dp"
-                android:singleLine="true"
+                android:imeOptions="actionNext"
                 android:maxLines="1"
-                android:imeOptions="actionNext"/>
+                android:padding="10dp"
+                android:singleLine="true" />
 
             <EditText
                 android:id="@+id/editEmail"
@@ -98,10 +98,10 @@
                 android:background="@drawable/bg_edittext_user"
                 android:drawableRight="@drawable/ic_email"
                 android:hint="Emaill"
-                android:padding="10dp"
-                android:singleLine="true"
+                android:imeOptions="actionNext"
                 android:maxLines="1"
-                android:imeOptions="actionNext"/>
+                android:padding="10dp"
+                android:singleLine="true" />
 
             <EditText
                 android:id="@+id/editPass"
@@ -114,11 +114,11 @@
                 android:background="@drawable/bg_edittext_user"
                 android:drawableRight="@drawable/ic_password"
                 android:hint="Password"
+                android:imeOptions="actionNext"
                 android:inputType="textPassword"
-                android:padding="10dp"
-                android:singleLine="true"
                 android:maxLines="1"
-                android:imeOptions="actionNext"/>
+                android:padding="10dp"
+                android:singleLine="true" />
 
             <EditText
                 android:id="@+id/editConfirmPass"
@@ -131,11 +131,11 @@
                 android:background="@drawable/bg_edittext_user"
                 android:drawableRight="@drawable/ic_confirm_pass"
                 android:hint="Retype Password"
+                android:imeOptions="actionDone"
                 android:inputType="textPassword"
-                android:padding="10dp"
-                android:singleLine="true"
                 android:maxLines="1"
-                android:imeOptions="actionDone"/>
+                android:padding="10dp"
+                android:singleLine="true" />
 
             <Button
                 android:id="@+id/btnSignUp"
@@ -152,10 +152,11 @@
 
             <TextView
                 android:id="@+id/tvSignIn"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="I already have a membership"
                 android:textColor="#3C8DBC" />
         </LinearLayout>

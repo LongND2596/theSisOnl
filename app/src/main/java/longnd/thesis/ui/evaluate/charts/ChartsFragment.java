@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import longnd.thesis.R;
+import longnd.thesis.data.model.Customer;
 import longnd.thesis.databinding.FragmentChartsBinding;
 import longnd.thesis.ui.base.BaseFragment;
 import longnd.thesis.ui.custom.GraphNeoView;
@@ -25,6 +26,7 @@ import longnd.thesis.ui.custom.GraphRiasecView;
 import longnd.thesis.ui.evaluate.EvaluateActivity;
 import longnd.thesis.utils.DataUtils;
 import longnd.thesis.utils.Define;
+import longnd.thesis.utils.EvaluateUtils;
 import longnd.thesis.utils.Fields;
 import longnd.thesis.utils.Utils;
 
@@ -32,6 +34,7 @@ public class ChartsFragment extends BaseFragment<ChartsViewModel, FragmentCharts
 
     private GraphNeoView neoView;
     private GraphRiasecView riasecView;
+    private Customer customer;
 
     @Override
     protected void initListenerOnClick() {
@@ -55,6 +58,10 @@ public class ChartsFragment extends BaseFragment<ChartsViewModel, FragmentCharts
 
     @Override
     protected void initData() {
+        customer = DataUtils.getInstance().getCustomer();
+        if (customer == null) {
+            return;
+        }
         switch (evaluateViewModel.getType()) {
             case Define.Question.TYPE_NEO:
                 binding.layoutRiasec.setVisibility(View.GONE);
@@ -67,6 +74,10 @@ public class ChartsFragment extends BaseFragment<ChartsViewModel, FragmentCharts
                 break;
 
             case Define.Question.TYPE_PSY_POCHOLIGICAL:
+                binding.mContainer.setVisibility(View.GONE);
+                binding.layoutNeo.setVisibility(View.GONE);
+                binding.layoutRiasec.setVisibility(View.GONE);
+                binding.chartPsy.setVisibility(View.VISIBLE);
                 showChartPsycho();
                 break;
         }
@@ -137,11 +148,12 @@ public class ChartsFragment extends BaseFragment<ChartsViewModel, FragmentCharts
         binding.tvResult04.setText(String.valueOf(results[3]));
         binding.tvResult05.setText(String.valueOf(results[4]));
 
-        binding.tvResult11.setText(DataUtils.getInstance().resultNeo.get(0).getLevel());
-        binding.tvResult22.setText(DataUtils.getInstance().resultNeo.get(1).getLevel());
-        binding.tvResult33.setText(DataUtils.getInstance().resultNeo.get(2).getLevel());
-        binding.tvResult44.setText(DataUtils.getInstance().resultNeo.get(3).getLevel());
-        binding.tvResult55.setText(DataUtils.getInstance().resultNeo.get(4).getLevel());
+        int[] nResults = viewModel.getResultsnNeo(customer.getGender(), results);
+        binding.tvResult11.setText(EvaluateUtils.wordResults(nResults[0]));
+        binding.tvResult22.setText(EvaluateUtils.wordResults(nResults[1]));
+        binding.tvResult33.setText(EvaluateUtils.wordResults(nResults[2]));
+        binding.tvResult44.setText(EvaluateUtils.wordResults(nResults[3]));
+        binding.tvResult55.setText(EvaluateUtils.wordResults(nResults[4]));
     }
 
     @Override

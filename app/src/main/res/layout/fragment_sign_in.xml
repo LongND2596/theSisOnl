@@ -81,10 +81,10 @@
                 android:background="@drawable/bg_edittext_user"
                 android:drawableRight="@drawable/ic_email"
                 android:hint="Email"
-                android:padding="10dp"
-                android:singleLine="true"
+                android:imeOptions="actionNext"
                 android:maxLines="1"
-                android:imeOptions="actionNext"/>
+                android:padding="10dp"
+                android:singleLine="true" />
 
             <EditText
                 android:id="@+id/editPass"
@@ -97,24 +97,41 @@
                 android:background="@drawable/bg_edittext_user"
                 android:drawableRight="@drawable/ic_password"
                 android:hint="Password"
+                android:imeOptions="actionDone"
                 android:inputType="textPassword"
-                android:padding="10dp"
-                android:singleLine="true"
                 android:maxLines="1"
-                android:imeOptions="actionDone"/>
+                android:padding="10dp"
+                android:singleLine="true" />
 
-            <Button
-                android:id="@+id/btnSignIn"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/editPass"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/bg_text_signin"
-                android:text="Sign In"
-                android:textAllCaps="false"
-                android:textColor="#3C8DBC"
-                android:textSize="16sp" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvErrorLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:text="TextView cảnh báo đăng nhập"
+                    android:textColor="#F30606"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnSignIn"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/bg_text_signin"
+                    android:text="Sign In"
+                    android:textAllCaps="false"
+                    android:textColor="#3C8DBC"
+                    android:textSize="16sp" />
+
+            </FrameLayout>
+
 
             <TextView
                 android:id="@+id/tvTitle4"
@@ -176,10 +193,11 @@
 
             <TextView
                 android:id="@+id/tvSignUp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="Register a new membership"
                 android:textColor="#3C8DBC" />
         </LinearLayout>

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import longnd.thesis.data.AbstractAppDatabase;
 import longnd.thesis.data.model.Result;
 import longnd.thesis.data.model.ResultNeo;
+import longnd.thesis.data.model.ResultPsychological;
 import longnd.thesis.data.model.ResultRiasec;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
@@ -39,6 +40,12 @@ public class ResultRespository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Single<Long> insertResultPsycho(ResultPsychological resultPsychological) {
+        return abstractAppDatabase.resultDao().insertResultPsycho(resultPsychological)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Flowable<List<Result>> getListResultByIdCustomer(int idCustomer) {
         return abstractAppDatabase.resultDao().getListResult(idCustomer)
                 .subscribeOn(Schedulers.io())
@@ -53,6 +60,12 @@ public class ResultRespository {
 
     public Flowable<ResultRiasec> getResultRiasec(int id) {
         return abstractAppDatabase.resultDao().getRiasec(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<ResultPsychological> getResultPsycho(int id) {
+        return abstractAppDatabase.resultDao().getPsycho(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
