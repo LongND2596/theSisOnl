@@ -56,7 +56,7 @@ public class EvaluateViewModel extends ViewModel {
         if (getMin() == 0 && getMax() == 1) {
             return 0.2f;
         }
-        int gspace = getMax() - getMin() + 1;
+        int gspace = getMax() - getMin() + 2;
         if (gspace > 1 && gspace <= NUMBER_CLASS) {
             if ((getMin() + 0.5f * NUMBER_CLASS) >= NUMBER_CLASS) {
                 return 0.5f;

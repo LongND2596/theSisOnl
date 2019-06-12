@@ -232,10 +232,10 @@ public class TestStepTwoOffViewModel extends ViewModel {
         return new ResultRiasec(rule, society, discover, reality, art, convince);
     }
 
-    public int calculateScore(int[] result) {
+    private int calculateScore(int[] result) {
         int score = 0;
-        for (int i = 0; i < result.length; i++) {
-            score += result[i];
+        for (int i : result) {
+            score += i;
         }
         return score;
     }

@@ -9,6 +9,7 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 import longnd.thesis.R;
+import longnd.thesis.utils.Utils;
 
 public class GraphRiasecView extends View {
     private Context context;
@@ -77,6 +78,13 @@ public class GraphRiasecView extends View {
 
     }
 
+    /**
+     * Use draw charts
+     *
+     * @param canvas
+     * @param i
+     * @param nscore
+     */
     private void drawCharts(Canvas canvas, int i, int nscore) {
         float A1x = 40 + R_SPACE * i + 20;
         float A1y = 679;
@@ -85,10 +93,10 @@ public class GraphRiasecView extends View {
         float A2y = 679;
 
         float B1x = 40 + R_SPACE * i + 20;
-        float B1y = 679 - ((nscore - min) * C_SPACE + 20);
+        float B1y = 679 - ((float) (nscore - min) / space * C_SPACE + 20);
 
         float B2x = 40 + R_SPACE * (i + 1) - 20;
-        float B2y = 679 - ((nscore - min) * C_SPACE + 20);
+        float B2y = 679 - ((float) (nscore - min) / space * C_SPACE + 20);
 
         float O1x = A1x;
         float O1y = (A1y + B1y) / 2;
@@ -96,7 +104,7 @@ public class GraphRiasecView extends View {
         float Tx = (A1x + A2x) / 2;
         float Ty = B1y;
 
-        String score = String.valueOf(nscore);
+        String score = Utils.displayNumberDataRiasec(nscore);
         canvas.drawText(score, Tx - mTextPaint.measureText(score) / 2, Ty - 10, mTextPaint);
 
         Paint mPaintChart = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -186,6 +194,11 @@ public class GraphRiasecView extends View {
         canvas.drawPath(mTrianglePath, mPaintChart);
     }
 
+    /**
+     * Use draw properties
+     *
+     * @param canvas
+     */
     private void drawProperties(Canvas canvas) {
         mTextPaint.setTextSize(20);
 
@@ -208,18 +221,30 @@ public class GraphRiasecView extends View {
         canvas.drawText(convince, Ox + R_SPACE * 11 / 2 - mTextPaint.measureText(convince) / 2, Oy + 20, mTextPaint);
     }
 
+    /**
+     * Use draw levels unit
+     *
+     * @param canvas
+     * @param min
+     * @param space
+     */
     private void drawUnit(Canvas canvas, int min, int space) {
-        // canvas.drawText("0", Ox - 20, Oy + 20, mTextPaint);
-        canvas.drawText(String.valueOf(min), Ox - 35, Oy - 10, mTextPaint);
-        canvas.drawText(String.valueOf(min + space), Ox - 35, Oy - 10 - (C_SPACE * 1), mTextPaint);
-        canvas.drawText(String.valueOf(min + space * 2), Ox - 35, Oy - 10 - (C_SPACE * 2), mTextPaint);
-        canvas.drawText(String.valueOf(min + space * 3), Ox - 35, Oy - 10 - (C_SPACE * 3), mTextPaint);
-        canvas.drawText(String.valueOf(min + space * 4), Ox - 35, Oy - 10 - (C_SPACE * 4), mTextPaint);
-        canvas.drawText(String.valueOf(min + space * 5), Ox - 35, Oy - 10 - (C_SPACE * 5), mTextPaint);
-        canvas.drawText(String.valueOf(min + space * 6), Ox - 35, Oy - 10 - (C_SPACE * 6), mTextPaint);
-        canvas.drawText(String.valueOf(min + space * 7), Ox - 35, Oy - 10 - (C_SPACE * 7), mTextPaint);
+        canvas.drawText(Utils.displayNumberDataRiasec(min), Ox - 35, Oy - 10, mTextPaint);
+        canvas.drawText(Utils.displayNumberDataRiasec(min + space), Ox - 35, Oy - 10 - (C_SPACE * 1), mTextPaint);
+        canvas.drawText(Utils.displayNumberDataRiasec(min + space * 2), Ox - 35, Oy - 10 - (C_SPACE * 2), mTextPaint);
+        canvas.drawText(Utils.displayNumberDataRiasec(min + space * 3), Ox - 35, Oy - 10 - (C_SPACE * 3), mTextPaint);
+        canvas.drawText(Utils.displayNumberDataRiasec(min + space * 4), Ox - 35, Oy - 10 - (C_SPACE * 4), mTextPaint);
+        canvas.drawText(Utils.displayNumberDataRiasec(min + space * 5), Ox - 35, Oy - 10 - (C_SPACE * 5), mTextPaint);
+        canvas.drawText(Utils.displayNumberDataRiasec(min + space * 6), Ox - 35, Oy - 10 - (C_SPACE * 6), mTextPaint);
+        canvas.drawText(Utils.displayNumberDataRiasec(min + space * 7), Ox - 35, Oy - 10 - (C_SPACE * 7), mTextPaint);
     }
 
+
+    /**
+     * Use draw frame
+     *
+     * @param canvas
+     */
     private void drawFrame(Canvas canvas) {
         float endX = getWidth();
         Ox = 40;

@@ -80,12 +80,12 @@ public class EvaluateActivity extends BaseActivity<EvaluateViewModel, ActivityEv
                     } else {
                         riasecResult = DataUtils.getInstance().resultRiasec.result;
                     }
-                    results[0] = riasecResult.quyTac;
-                    results[1] = riasecResult.xaHoi;
-                    results[2] = riasecResult.khamPha;
-                    results[3] = riasecResult.thucTe;
-                    results[4] = riasecResult.ngheThuat;
-                    results[5] = riasecResult.thuyetPhuc;
+                    results[0] = (int) (riasecResult.quyTac * 10);
+                    results[1] = (int) riasecResult.xaHoi * 10;
+                    results[2] = (int) riasecResult.khamPha * 10;
+                    results[3] = (int) riasecResult.thucTe * 10;
+                    results[4] = (int) riasecResult.ngheThuat * 10;
+                    results[5] = (int) riasecResult.thuyetPhuc * 10;
                 } else {
                     resultRiasec = (ResultRiasec) intent.getBundleExtra(KEY_BUNDLE).getSerializable(Fields.KEY_VALUE);
                     // type: 0 - rule, 1- society, 2 - discover, 3 - reality, 4 - art, 5 - convince

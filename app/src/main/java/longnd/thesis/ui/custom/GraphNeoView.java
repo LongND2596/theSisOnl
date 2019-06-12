@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
+
 import longnd.thesis.R;
 import longnd.thesis.data.entity.APoint;
 
@@ -141,7 +142,7 @@ public class GraphNeoView extends View {
     private void drawCharts(Canvas canvas) {
         // vẽ điểm A
         A.setX(O.getX());
-        A.setY(O.getY() - FIRST_SPACE - (results[0] - min) * 1.0f / space * USPACE);
+        A.setY(O.getY() - FIRST_SPACE -  (results[0] - min) * 1.0f / space * USPACE);
         // vẽ điểm B
         B = aCoordinatesPoint(results[1], TYPE_B);
 
@@ -264,6 +265,8 @@ public class GraphNeoView extends View {
     private void drawPentagon(Canvas canvas, float Ox, float Oy, float radius, int type) {
         float Ax = Ox;
         float Ay = Oy - radius;
+
+        // canvas.drawText(String.valueOf(Math.floor((min + type * space) * 10) / 10), Ax - 25, Ay - 10, paintText);
 
         float Bx = (float) (Ox + radius * Math.cos(Math.toRadians(18)));
         float By = (float) (Oy - radius * Math.cos(Math.toRadians(72)));

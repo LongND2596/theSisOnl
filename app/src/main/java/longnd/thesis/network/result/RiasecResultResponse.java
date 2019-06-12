@@ -27,27 +27,27 @@ public class RiasecResultResponse extends BaseResponse {
     public class RiasecResult{
         @SerializedName("Thực tế")
         @Expose
-        public int thucTe;
+        public double thucTe;
 
         @SerializedName("Khám phá")
         @Expose
-        public int khamPha;
+        public double khamPha;
 
         @SerializedName("Nghệ thuật")
         @Expose
-        public int ngheThuat;
+        public double ngheThuat;
 
         @SerializedName("Xã hội")
         @Expose
-        public int xaHoi;
+        public double xaHoi;
 
         @SerializedName("Quy tắc")
         @Expose
-        public int quyTac;
+        public double quyTac;
 
         @SerializedName("Thuyết phục")
         @Expose
-        public int thuyetPhuc;
+        public double thuyetPhuc;
     }
 
     public class HighestFieldExplain{

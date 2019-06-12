@@ -407,4 +407,14 @@ public class Utils {
         Matcher matcher = pattern.matcher(pass);
         return matcher.matches();
     }
+
+    /**
+     * Display data riasec again
+     *
+     * @param number
+     * @return
+     */
+    public static String displayNumberDataRiasec(int number) {
+        return (number / 10) + "." + (number % 10);
+    }
 }

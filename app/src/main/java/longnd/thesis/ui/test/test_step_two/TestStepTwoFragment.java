@@ -142,13 +142,13 @@ public class TestStepTwoFragment extends BaseFragment<TestStepTwoViewModel, Frag
         switch (v.getId()) {
             case R.id.btnSubmit:
                 // kiểm tra điều kiện, thỏa mãn mới làm tiếp
-                for (int item = 0; item < viewModel.getResuls().length; item++) {
-                    if (viewModel.getResuls()[item] == -1) {
-                        ToastUtils.showToastNotification(getContext(), "Vui lòng chọn 1 trong các tùy chọn sau");
-                        binding.mViewPager.setCurrentItem(item);
-                        return;
-                    }
-                }
+//                for (int item = 0; item < viewModel.getResuls().length; item++) {
+//                    if (viewModel.getResuls()[item] == -1) {
+//                        ToastUtils.showToastNotification(getContext(), "Vui lòng chọn 1 trong các tùy chọn sau");
+//                        binding.mViewPager.setCurrentItem(item);
+//                        return;
+//                    }
+//                }
                 PsyLoading.getInstance(getContext(), binding.mViewPager).show();
                 if (testViewModel.getType() == Define.Question.TYPE_NEO) {
                     viewModel.submitNeo();
