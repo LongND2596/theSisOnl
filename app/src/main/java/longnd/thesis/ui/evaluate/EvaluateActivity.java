@@ -129,11 +129,15 @@ public class EvaluateActivity extends BaseActivity<EvaluateViewModel, ActivityEv
     }
 
     public void viewDownload() {
-        String url = "https://danhgiatamly.edu.vn/history-export-pdf/"
-                + DataUtils.getInstance().getProfile().getId()
-                + DataUtils.getInstance().historyId;
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
+        if (DataUtils.getInstance().versionApp.equals(Define.VERSION_ONL)) {
+            String url = "https://danhgiatamly.edu.vn/history-export-pdf/"
+                    + DataUtils.getInstance().getProfile().getId()
+                    + DataUtils.getInstance().historyId;
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else {
+            viewModel.createFilePdf();
+        }
     }
 }

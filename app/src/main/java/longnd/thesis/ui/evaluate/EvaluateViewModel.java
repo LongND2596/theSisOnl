@@ -81,4 +81,11 @@ public class EvaluateViewModel extends ViewModel {
     public int getType() {
         return type;
     }
+
+    /**
+     * Used create a file pdf result
+     */
+    public void createFilePdf() {
+        // TODO :
+    }
 }
